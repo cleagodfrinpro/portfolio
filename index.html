@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cléa Godfrin · UX Designer orientée recherche</title>
+<meta name="description" content="Portfolio de Cléa Godfrin, UX Designer orientée recherche et analyse. Études de cas, démarche et projets UX.">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="a11y">
+    <button class="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><circle cx="12" cy="3.5" r="2"/><path d="M20 7.5a1 1 0 0 1 0 2l-5 .6V13l1.8 6.1a1 1 0 0 1-1.9.6L13 15.5h-2l-1.9 4.2a1 1 0 0 1-1.9-.6L9 13v-2.9l-5-.6a1 1 0 0 1 0-2h16z"/></svg>
+      <span>Accessibilité</span>
+    </button>
+    <div class="a11y-panel" id="a11y-panel" hidden>
+      <p class="a11y-title">Accessibilité</p>
+      <button type="button" data-a11y="big" aria-pressed="false">Texte plus grand</button>
+      <button type="button" data-a11y="contrast" aria-pressed="false">Contraste élevé</button>
+      <button type="button" data-a11y="reduce" aria-pressed="false">Réduire les animations</button>
+      <button type="button" data-a11y="links" aria-pressed="false">Souligner les liens</button>
+    </div>
+  </div>
+
+  <nav aria-label="Navigation principale">
+    <div class="nav-in">
+      <a href="#top" class="brand" aria-label="Cléa Godfrin, retour en haut">
+        <span class="logo">CG</span>
+        <span class="brand-name">Cléa Godfrin</span>
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+        onclick="var n=document.getElementById('nl');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰</button>
+      <div class="nav-links" id="nl">
+        <a href="#top">Accueil</a>
+        <a href="#apropos">À propos</a>
+        <a href="#competences">Compétences</a>
+        <a href="#epopees">Projets</a>
+        <a href="#passions">Passions</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-in">
+      <span class="star" aria-hidden="true" style="top:30px;right:8%;"></span>
+      <span class="star rose" aria-hidden="true" style="bottom:40px;left:44%;transform:scale(.7);"></span>
+      <span class="star rose" aria-hidden="true" style="top:74%;left:6%;transform:scale(.55);"></span>
+      <img class="deco-plus" src="assets/plus-violet-pale.png" alt="" aria-hidden="true" style="width:30px;top:12%;right:20%">
+      <div class="hero-text">
+        <div class="hero-body">
+          <p class="hero-kicker"><span class="sq"></span><span aria-hidden="true">⊹</span> UX DESIGNER · RECHERCHE &amp; ANALYSE</p>
+          <h1>Bienvenue dans mon monde, où la bonne réponse commence par la bonne question.</h1>
+          <p class="quote"><mark>« Derrière chaque détail, il y a un utilisateur. »</mark></p>
+          <div class="hero-desc">
+            <p class="intro">Je suis <b>Cléa Godfrin</b>, UX Designer orientée recherche et analyse. J'aime mener l'enquête 🔎 : observer, analyser, interviewer. Comprendre les usages, les frictions et l'histoire qui se cache derrière, avant de concevoir des expériences claires et accessibles.</p>
+            <p class="avail">Actuellement en alternance chez Flying Secoya et en Mastère UX Design à l'IIM Digital School, je serai disponible pour un poste en <b>CDI ou CDD à partir de septembre 2026</b>.</p>
+          </div>
+          <div class="cta-row">
+            <a href="#epopees" class="btn primary">Voir mes projets</a>
+            <a href="https://bit.ly/clea-godfrin" target="_blank" rel="noopener" class="btn ghost">📄 Mon CV</a>
+          </div>
+        </div>
+        <div class="hero-pp-wrap">
+          <img class="hero-pp" src="assets/img-01.webp" alt="Photo de profil de Cléa Godfrin, souriante, tenant une petite fleur de pâquerette.">
+          <img class="happy-pp" src="assets/img-02.webp" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+    <a href="#apropos" class="scroll-down" aria-label="Aller à la section suivante"><span aria-hidden="true">↓</span></a>
+  </header>
+
+  <main id="main">
+
+
+    <section id="apropos" aria-labelledby="t-apropos">
+      <img class="deco-plus" src="assets/plus-violet.png" alt="" aria-hidden="true" style="width:24px;top:-16px;right:-8px">
+      <p class="kicker"><span class="sq"></span><span aria-hidden="true">⊹</span> À PROPOS DE MOI</p>
+      <h2 id="t-apropos">Mon chemin vers l'UX</h2>
+      <div class="about-text">
+        <p class="lead">Mon parcours en design n'a rien d'une ligne droite. Après un Bachelor Web Design, j'ai exploré plusieurs facettes du métier en freelance (sites web, chartes graphiques, identité visuelle) avant de trouver ce qui me passionnait vraiment : <span class="hl">l'UX Design</span>.</p>
+        <p class="lead">Aujourd'hui en alternance chez Flying Secoya et en Mastère UX Design à l'IIM Digital School, je me consacre pleinement à ce qui m'anime : enquêter pour révéler les vraies problématiques et concevoir des réponses concrètes.</p>
+        <h3 class="approach-title">Mon approche</h3>
+        <p class="lead">Curieuse et analytique, je pose les bonnes questions et recherche avant de chercher des solutions. En équipe, j'aime faire valider mes choix, recueillir les avis, ajuster. <b>Un bon design se construit à plusieurs.</b></p>
+      </div>
+    </section>
+
+    <section id="competences" aria-labelledby="t-competences">
+      <img class="deco-plus" src="assets/plus-rose.png" alt="" aria-hidden="true" style="width:26px;top:56px;right:32px">
+      <img class="deco-plus" src="assets/plus-violet-pale.png" alt="" aria-hidden="true" style="width:24px;bottom:70px;left:3%">
+      <p class="kicker"><span class="sq"></span><span aria-hidden="true">⊹</span> FICHE PERSONNAGE</p>
+      <h2 id="t-competences">Compétences</h2>
+      <div class="skill-game">
+        <div class="skill-main">
+        <div class="skill-menu" role="tablist" aria-label="Catégories de compétences">
+          <button class="skill-tab active" id="tab-exp" role="tab" aria-selected="true" aria-controls="panel-exp" data-cat="exp">Expertise</button>
+          <button class="skill-tab" id="tab-tools" role="tab" aria-selected="false" aria-controls="panel-tools" tabindex="-1" data-cat="tools">Outils</button>
+          <button class="skill-tab" id="tab-soft" role="tab" aria-selected="false" aria-controls="panel-soft" tabindex="-1" data-cat="soft">Soft skills</button>
+        </div>
+        <div class="skill-screen">
+          <div class="skill-panel active" id="panel-exp" role="tabpanel" aria-labelledby="tab-exp">
+            <span class="gp-tag">Recherche utilisateur</span>
+            <span class="gp-tag">Expérience utilisateur (UX)</span>
+            <span class="gp-tag">Structuration de parcours</span>
+            <span class="gp-tag">Prototypage</span>
+            <span class="gp-tag">Accessibilité</span>
+            <span class="gp-tag">Collaboration produit/tech</span>
+            <span class="gp-tag">Gestion de projet</span>
+          </div>
+          <div class="skill-panel" id="panel-tools" role="tabpanel" aria-labelledby="tab-tools" hidden>
+            <span class="gp-tag">Figma / FigJam</span>
+            <span class="gp-tag">Miro</span>
+            <span class="gp-tag">Notion</span>
+            <span class="gp-tag">WordPress</span>
+            <span class="gp-tag">Claude</span>
+            <span class="gp-tag">Suite Office</span>
+          </div>
+          <div class="skill-panel" id="panel-soft" role="tabpanel" aria-labelledby="tab-soft" hidden>
+            <span class="gp-tag">Autonomie</span>
+            <span class="gp-tag">Esprit analytique</span>
+            <span class="gp-tag">Organisation</span>
+            <span class="gp-tag">Communication</span>
+            <span class="gp-tag">Empathie</span>
+            <span class="gp-tag">Prise de décision</span>
+          </div>
+        </div>
+        </div>
+        <div class="skill-chibi"><img id="skill-char" src="assets/expertise.png" alt="" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section id="epopees" aria-labelledby="t-epopees">
+      <img class="deco-plus" src="assets/plus-rose.png" alt="" aria-hidden="true" style="width:24px;top:70px;left:3.5%">
+      <div class="epopees-in">
+        <p class="kicker"><span class="sq"></span><span aria-hidden="true">⊹</span> ÉPOPÉES UX</p>
+        <h2 id="t-epopees">Mes études de cas</h2>
+        <div class="grid">
+
+          <a class="card" data-reveal href="flying-secoya.html">
+            <div class="card-cover"><img src="assets/img-03.webp" alt="Couverture du projet Flying Secoya : captures de la plateforme SaaS sur fond bleu nuit."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX/UI</span></div>
+              <h3>Flying Secoya · Alternance</h3>
+              <p>Construire les parcours, les méthodes et les outils d'une plateforme SaaS dédiée à l'éco-responsabilité des productions audiovisuelles.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="tricount.html">
+            <div class="card-cover"><img src="assets/TRICOUNT IMAGE COUVERTURE.webp" alt="Couverture « Étude UX Research : Tricount » avec formes géométriques colorées."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX Design</span><span class="tag rose">UX Research</span></div>
+              <h3>Tricount · UX Research</h3>
+              <p>Comprendre les usages, frustrations et besoins des utilisateurs de Tricount à travers une étude UX Research complète.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="aimetamarque.html">
+            <div class="card-cover"><img src="assets/AIMETAMARQUE.webp" alt="Couverture AIMETAMARQUE : visual novel avec un personnage fraise ailé dans un décor de forêt."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX/UI</span><span class="tag rose">Legal Design</span></div>
+              <h3>AIMETAMARQUE · Legal Design</h3>
+              <p>Transformer des conditions d'utilisation en visual novel interactif pour rendre le juridique accessible.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="cnp.html">
+            <div class="card-cover"><img src="assets/CNP.webp" alt="Couverture « CNP Assurance » sur fond bleu nuit : lutter contre la mal-assurance des populations vulnérables."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX Design</span><span class="tag rose">UX Research</span></div>
+              <h3>CNP · UX Research &amp; Design</h3>
+              <p>Lutter contre la mal-assurance des populations vulnérables, projet mené dans le cadre de la compétition nationale PULSE 2026.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="https://bit.ly/clea-godfrin" target="_blank" rel="noopener">
+            <div class="card-cover"><img src="assets/img-07.webp" alt="Couverture Design Thinking : maquette Lego d'un tramway, « Comment rendre le voyage en transport en commun plus sécurisé ? »."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX Design</span></div>
+              <h3>Améliorer l'expérience des transports · Design Thinking</h3>
+              <p>Repenser la sécurité dans les transports en commun via la méthode Design Thinking.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="https://bit.ly/clea-godfrin" target="_blank" rel="noopener">
+            <div class="card-cover"><img src="assets/img-08.webp" alt="Couverture « Every choice matters » : arbres de décision sur fond noir façon jeu rétro."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag rose">UX Research</span></div>
+              <h3>Every choice matters · Data Visualisation</h3>
+              <p>Transformer une étude sur les jeux à choix en une data visualisation accessible à tous les créateurs d'expériences narratives interactives.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="https://bit.ly/clea-godfrin" target="_blank" rel="noopener">
+            <div class="card-cover"><img src="assets/img-09.webp" alt="Couverture « Mobilités douces et fluidité » : illustration d'un vélo avec un panier de tulipes."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX Design</span></div>
+              <h3>Mobilités Douces · Design Systémique</h3>
+              <p>Analyser le système de la mobilité douce pour identifier ses leviers et ses paradoxes.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <a class="card" data-reveal href="https://bit.ly/clea-godfrin" target="_blank" rel="noopener">
+            <div class="card-cover"><img src="assets/img-10.webp" alt="Couverture PAP'S Auto : maquettes du site de location de véhicules sur fond violet."></div>
+            <div class="card-body">
+              <div class="tags"><span class="tag">UX/UI</span></div>
+              <h3>PAP'S Auto · Refonte</h3>
+              <p>Refonte complète d'un site de location de véhicules entre particuliers et agences.</p>
+              <span class="more">Voir l'étude de cas →</span>
+            </div>
+          </a>
+
+          <div class="happy-cell"><img class="happy-read" src="assets/img-11.webp" alt="" aria-hidden="true"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="passions" aria-labelledby="t-passions">
+      <img class="deco-plus" src="assets/plus-rose.png" alt="" aria-hidden="true" style="width:28px;top:40px;right:5%">
+      <img class="deco-plus" src="assets/plus-violet.png" alt="" aria-hidden="true" style="width:22px;bottom:120px;left:-12px">
+      <p class="kicker"><span class="sq"></span><span aria-hidden="true">⊹</span> AU-DELÀ DES PIXELS</p>
+      <h2 id="t-passions">Mes passions</h2>
+      <div class="passion-list">
+        <div class="passion-item" data-reveal>
+          <figure class="polaroid">
+            <img src="assets/img-12.webp" alt="Capture du jeu Angelique : une chambre en pixel art rétro avec un personnage blond et une boîte de dialogue en japonais.">
+            <figcaption>Angelique · 1994</figcaption>
+          </figure>
+          <div class="passion-text">
+            <p>Comme vous l'avez peut-être remarqué dans la bannière, j'aime énormément le <b>pixel art</b>. Une passion née des jeux vidéo, et plus particulièrement des <b>otome games</b> : Angelique, le premier otome game du monde sorti en 1994, a clairement influencé mon affection pour ce style. (mention spéciale à Omori, qui est un coup de cœur).</p>
+          </div>
+        </div>
+        <div class="passion-item" data-reveal>
+          <figure class="polaroid">
+            <img src="assets/img-13.webp" alt="Photo de Happy, le cochon d'Inde de Cléa, au pelage roux et blanc.">
+            <figcaption>Happy</figcaption>
+          </figure>
+          <div class="passion-text">
+            <p>Vous avez également peut-être remarqué le cochon d'Inde dans ma bannière, inspiré de mon propre cochon d'Inde, <b>Happy</b>, qui est et sera toujours mon énergie et ma force. 💪</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ambition" aria-labelledby="t-ambition">
+      <p class="kicker"><span class="sq"></span><span aria-hidden="true">⊹</span> MON AMBITION</p>
+      <h2 id="t-ambition">Où je veux aller</h2>
+      <div class="ambition-card" data-reveal>
+        <img src="assets/img-14.webp" alt="Portrait de Cléa Godfrin en extérieur, devant un feuillage vert, tenant des fleurs blanches.">
+        <div>
+          <p class="lead">Cette aventure UX, je la vois sur le long terme : une équipe avec qui avancer, un produit qui mérite qu'on s'y investisse, et l'envie d'y apporter mon œil et ma curiosité.</p>
+          <p class="final">Et si on se rencontrait au-delà de ces pixels ? ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="t-contact">
+      <img class="deco-plus" src="assets/plus-violet.png" alt="" aria-hidden="true" style="width:26px;top:34px;right:9%">
+      <div class="contact-in">
+        <p class="kicker" style="justify-content:center;"><span class="sq"></span><span aria-hidden="true">⊹</span> CONTACT</p>
+        <h2 id="t-contact">Envie d'échanger&nbsp;?</h2>
+        <p class="lead">Une opportunité, une question, ou simplement l'envie d'échanger ? Je serais ravie de discuter avec vous ! 😊</p>
+        <div class="contact-btns">
+          <a href="mailto:clea.godfrin.pro@gmail.com" class="btn primary">✉️ clea.godfrin.pro@gmail.com</a>
+          <a href="https://www.linkedin.com/in/cléa-godfrin/" target="_blank" rel="noopener" class="btn ghost" aria-label="Profil LinkedIn de Cléa Godfrin"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21H19v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21H9z"/></svg> LinkedIn</a>
+          <a href="https://bit.ly/clea-godfrin" target="_blank" rel="noopener" class="btn ghost">📄 Mon CV</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <a href="#top" class="logo" aria-label="Retour en haut">CG</a>
+    <p class="fx">Cléa Godfrin · UX Designer · Des pixels qui racontent des histoires ✨</p>
+  </footer>
+<script>
+(function(){
+  var els=document.querySelectorAll('[data-reveal]');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver'in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en,i){
+      if(en.isIntersecting){
+        var el=en.target;
+        setTimeout(function(){el.classList.add('in');}, (el.dataset.delay?+el.dataset.delay:0));
+        io.unobserve(el);
+      }
+    });
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e,i){ e.dataset.delay=(i%3)*90; io.observe(e); });
+})();
+</script>
+  <script>
+  (function(){
+    var root=document.documentElement, opts=['big','contrast','reduce','links'];
+    try{opts.forEach(function(o){if(localStorage.getItem('a11y-'+o)==='1')root.classList.add('a11y-'+o);});}catch(e){}
+    var toggle=document.querySelector('.a11y-toggle'), panel=document.getElementById('a11y-panel'), lbl=toggle.querySelector('span');
+    function setOpen(open){
+      if(open)panel.removeAttribute('hidden'); else panel.setAttribute('hidden','');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+      lbl.textContent = open ? 'Fermer' : 'Accessibilité';
+    }
+    toggle.addEventListener('click',function(){ setOpen(panel.hasAttribute('hidden')); });
+    document.querySelectorAll('.a11y-panel button[data-a11y]').forEach(function(btn){
+      var o=btn.getAttribute('data-a11y');
+      if(root.classList.contains('a11y-'+o))btn.setAttribute('aria-pressed','true');
+      btn.addEventListener('click',function(){
+        var on=root.classList.toggle('a11y-'+o);
+        btn.setAttribute('aria-pressed',on?'true':'false');
+        try{localStorage.setItem('a11y-'+o,on?'1':'0');}catch(e){}
+      });
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hasAttribute('hidden')){setOpen(false);toggle.focus();}});
+  })();
+  </script>
+  <script>
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.skill-tab'));
+    var panels=[].slice.call(document.querySelectorAll('.skill-panel'));
+    if(!tabs.length) return;
+    var chibi=document.getElementById('skill-char');
+    var chars={exp:'assets/expertise.png',tools:'assets/outils.png',soft:'assets/soft.png'};
+    function activate(tab){
+      tabs.forEach(function(t){var on=t===tab;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;});
+      panels.forEach(function(pl){var on=pl.id===tab.getAttribute('aria-controls');pl.classList.toggle('active',on);if(on)pl.removeAttribute('hidden');else pl.setAttribute('hidden','');});
+      if(chibi){var c=tab.getAttribute('data-cat');if(chars[c])chibi.src=chars[c];}
+    }
+    tabs.forEach(function(tab){
+      tab.addEventListener('click',function(){activate(tab);});
+      tab.addEventListener('keydown',function(e){
+        var i=tabs.indexOf(tab), n=null;
+        if(e.key==='ArrowRight'||e.key==='ArrowDown') n=tabs[(i+1)%tabs.length];
+        else if(e.key==='ArrowLeft'||e.key==='ArrowUp') n=tabs[(i-1+tabs.length)%tabs.length];
+        if(n){e.preventDefault();activate(n);n.focus();}
+      });
+    });
+  })();
+  </script>
+</body>
+</html>

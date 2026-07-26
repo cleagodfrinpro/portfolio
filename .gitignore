@@ -1,0 +1,17 @@
+# Système d'exploitation
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Éditeurs / outils
+.vscode/
+.idea/
+*.swp
+*.tmp
+*.log
+
+# Claude Code (config locale, à ne pas publier)
+.claude/
+
+# Dépendances (au cas où)
+node_modules/
