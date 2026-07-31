@@ -92,9 +92,8 @@
   .skill-screen{background:#fff;border:2.5px solid var(--violet);border-radius:12px;box-shadow:6px 6px 0 var(--lav);padding:24px 26px;margin-top:16px;min-height:118px;}
   .skill-panel{display:flex;flex-wrap:wrap;gap:9px;}
   .skill-panel[hidden]{display:none;}
-  .gp-tag{display:inline-flex;align-items:center;gap:8px;font-size:16px;padding:10px 18px;border-radius:22px;background:#fff;border:2px solid var(--lav);color:var(--violet);font-weight:400;box-shadow:0 3px 0 rgba(187,197,248,.7);transition:transform .1s ease,box-shadow .1s ease;}
+  .gp-tag{display:inline-flex;align-items:center;gap:8px;font-size:16px;padding:10px 18px;border-radius:22px;background:#fff;border:2px solid var(--lav);color:var(--violet);font-weight:400;box-shadow:0 3px 0 rgba(187,197,248,.7);}
   .gp-tag::before{content:'✦';color:var(--lav-deep);font-size:14px;line-height:1;}
-  .gp-tag:hover{transform:translateY(-2px);box-shadow:0 5px 0 rgba(187,197,248,.7);}
 
   /* PROJETS */
   #epopees{max-width:none;background:var(--lav-soft);position:relative;}

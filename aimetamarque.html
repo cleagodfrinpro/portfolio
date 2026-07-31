@@ -52,9 +52,9 @@
   .cs-rail-back:hover{color:var(--violet-mid);text-decoration:underline;}
 
   /* Corps de texte */
-  .cs-h3{font-family:'Poppins';font-weight:700;font-size:19px;color:#1B1440;margin:32px 0 10px;}
+  .cs-h3{font-family:'Poppins';font-weight:700;font-size:19px;color:#1B1440;margin:42px 0 12px;}
   .cs-h4{font-family:'Poppins';font-weight:700;font-size:16.5px;color:var(--violet);margin:26px 0 8px;}
-  .cs-p{font-size:16px;line-height:1.72;color:var(--ink);margin:0 0 14px;max-width:none;}
+  .cs-p{font-size:16px;line-height:1.78;color:var(--ink);margin:0 0 18px;max-width:none;}
   .cs-list{margin:6px 0 16px;padding-left:22px;max-width:none;}
   .cs-list li{font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:9px;}
 
@@ -113,6 +113,28 @@
   .cs-issue.i4 .ico{background:#E0ECFA;color:#345F97;}
   .cs-issue.i5 .ico{background:#E5E9FC;color:#5B67C4;}
 
+  /* Ma propre enquête — encadré blanc + grille numérotée (cohérence PAP'S) */
+  .cs-box{background:#fff;border:3px solid var(--violet);border-radius:16px;box-shadow:9px 9px 0 var(--lav);padding:26px 32px 30px;margin:46px 0 8px;}
+  .cs-box > .cs-h3{margin-top:0;}
+  .cs-numgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;margin:22px 0 4px;}
+  .cs-numitem{display:flex;gap:16px;align-items:center;}
+  .cs-numitem .n{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:13px;font-family:'Silkscreen';font-size:14px;flex:none;}
+  .cs-numitem b{font-family:'Poppins';font-weight:600;font-size:16px;color:#1B1440;line-height:1.3;}
+  .cs-numitem:nth-child(1) .n{background:#FCE4EE;color:#C0568A;}
+  .cs-numitem:nth-child(2) .n{background:#ECE7FB;color:#6A54B0;}
+  .cs-numitem:nth-child(3) .n{background:#E1F1E9;color:#38855F;}
+  .cs-numitem:nth-child(4) .n{background:#E0ECFA;color:#345F97;}
+  .cs-numitem:nth-child(5) .n{background:#E5E9FC;color:#5B67C4;}
+  @media(max-width:820px){.cs-box{padding:20px 18px;box-shadow:5px 5px 0 var(--lav);}.cs-numgrid{grid-template-columns:1fr;gap:16px;}}
+
+  /* Étude — chiffres surlignés (feutre pastel) */
+  .cs-mark{font-weight:700;color:#1B1440;padding:0 4px;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+  .cs-mark.r{background:linear-gradient(transparent 54%,#FBD3E4 54%);}
+  .cs-mark.v{background:linear-gradient(transparent 54%,#D9DEFA 54%);}
+  .cs-mark.g{background:linear-gradient(transparent 54%,#CDEBDD 54%);}
+  .cs-srcinline{font-size:13px;font-style:italic;color:var(--violet-mid);}
+  .cs-srcinline a{color:#C43C74;text-decoration:underline;}
+
   /* Étude — panneau statistiques */
   .cs-study{background:linear-gradient(135deg,#EEEDFE 0%,#FCEFF6 55%,#FFF9F5 100%);border:2px solid var(--lav);border-radius:16px;padding:24px 26px 22px;margin:16px 0 12px;box-shadow:6px 6px 0 var(--lav-soft);}
   .cs-studylead{font-size:15.5px;line-height:1.7;color:var(--ink);margin:0 0 18px;}
@@ -130,7 +152,7 @@
   .cs-panel{background:#FBEDF4;border:1.5px solid rgba(196,60,116,.12);border-radius:18px;padding:6px 30px 26px;margin:22px 0;box-shadow:0 10px 30px rgba(78,63,134,.06);}
   .cs-panel.arcade{background:#fff;border:3px solid var(--violet);box-shadow:9px 9px 0 var(--lav);}
   .cs-panel.arcade .cs-issue{background:#F6F4FC;}
-  .cs-panel.violet{background:#EFE9FB;border:1.5px solid rgba(83,74,183,.14);}
+  .cs-panel.violet{background:#EFE9FB;border:1.5px solid rgba(83,74,183,.14);margin-top:46px;}
   .cs-panel .cs-h3{margin-top:24px;}
   @media(max-width:820px){.cs-panel{padding:6px 18px 20px;}}
   .cs-declic{background:linear-gradient(135deg,#FCEFF6 0%,#EEEDFE 100%);border:2px solid var(--lav);border-radius:16px;padding:20px 24px;margin:28px 0 6px;box-shadow:5px 5px 0 var(--lav-soft);}
@@ -228,7 +250,7 @@
   .cs-note{position:relative;border-radius:14px;padding:24px 30px 26px 46px;margin:18px 0;color:#3A3357;font-size:16px;line-height:1.72;background:#fff;border:1px solid #ECE4F1;box-shadow:0 10px 26px rgba(78,63,134,.08);}
   .cs-note::after{content:'';position:absolute;left:17px;top:22px;bottom:22px;width:7px;background-image:radial-gradient(circle,#D9D2BF 3px,transparent 3.4px);background-size:7px 24px;background-repeat:repeat-y;}
 
-  .cs-sec{font-family:'Poppins';font-weight:800;font-size:clamp(21px,2.6vw,27px);letter-spacing:-.3px;color:#1B1440;margin:58px 0 8px;scroll-margin-top:90px;}
+  .cs-sec{font-family:'Poppins';font-weight:800;font-size:clamp(21px,2.6vw,27px);letter-spacing:-.3px;color:#1B1440;margin:74px 0 8px;scroll-margin-top:90px;}
   .cs-secline{height:0;border:none;border-top:2px solid var(--lav-soft);margin:0 0 22px;}
   .cs-divider{height:0;border:none;border-top:2px solid var(--lav-soft);margin:40px 0 30px;}
   .cs-concl{background:#fff;border:3px solid var(--violet);border-radius:16px;box-shadow:9px 9px 0 var(--lav);padding:28px 34px 32px;margin:44px 0 30px;}
@@ -419,17 +441,9 @@
         </div>
       </div>
 
-      <div class="cs-panel">
       <h3 class="cs-h3">Étude</h3>
-      <p class="cs-p">Selon une étude menée par Internet Society France, 7 français sur 10 ne lisent pas ou rarement les Conditions Générales. Et 48% des sondés les comprennent "plutôt mal" tandis que 9% les comprennent "Très Mal".</p>
-      <div class="cs-stats">
-        <div class="cs-stat"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7a17 17 0 0 1-3 3.5"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/><line x1="3" y1="3" x2="21" y2="21"/></svg></span><b>7/10</b><span class="lbl">ne lisent pas ou rarement les Conditions Générales</span></div>
-        <div class="cs-stat"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 15c1-1 2-1 3.5 0s2.5 1 3.5 0"/><line x1="9" y1="9.5" x2="9.01" y2="9.5"/><line x1="15" y1="9.5" x2="15.01" y2="9.5"/></svg></span><b>48%</b><span class="lbl">les comprennent « plutôt mal »</span></div>
-        <div class="cs-stat"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 16c1-1.6 5-1.6 7 0"/><line x1="9" y1="10" x2="9.01" y2="10"/><line x1="15" y1="10" x2="15.01" y2="10"/></svg></span><b>9%</b><span class="lbl">les comprennent « Très Mal »</span></div>
-      </div>
-      <p class="cs-src"><strong>Source :</strong> Internet Society France (<a href="https://www.isoc.fr/cgu-opinionway/" target="_blank" rel="noopener">https://www.isoc.fr/cgu-opinionway/</a>)</p>
+      <p class="cs-p">Selon une étude menée par Internet Society France, <span class="cs-mark r">7 français sur 10</span> ne lisent pas ou rarement les Conditions Générales. Et <span class="cs-mark v">48 %</span> des sondés les comprennent « plutôt mal » tandis que <span class="cs-mark g">9 %</span> les comprennent « Très Mal ». <span class="cs-srcinline">Source : <a href="https://www.isoc.fr/cgu-opinionway/" target="_blank" rel="noopener">Internet Society France</a></span></p>
       <p class="cs-p">Ces chiffres montrent l'ampleur du défi auquel font face les utilisateurs, mettant en lumière une problématique <strong>répandue</strong>. Il est évident que le service AIMETAMARQUE n'est pas seul à affronter ce problème, et cela montre l'importance de trouver des solutions pour rendre les conditions générales plus accessibles à tous.</p>
-      </div>
 
       <h3 class="cs-h3">User Research</h3>
       <p class="cs-p">Afin d'obtenir des avis concrets sur les Conditions Générales, j'ai pris l'initiative de contacter directement des influenceurs. À travers des messages privés et une demande de remplissage d'un formulaire Google, j'ai sollicité leurs retours sur ce sujet. J'ai interrogé un échantillon représentatif d'une dizaine d'influenceurs, comprenant des personnes de différents genres et âgées de 19 à 25 ans.</p>
@@ -455,15 +469,15 @@
         <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/AIMETAMARQUE 10.webp" alt="Résultats du formulaire : fréquence de lecture des conditions générales."><span class="cs-cap">Enquête · Fréquence de lecture</span></button>
       </div>
 
-      <div class="cs-panel violet">
+      <div class="cs-box">
       <h3 class="cs-h3">Ma propre enquête</h3>
       <p class="cs-p">À la suite de mes propres recherches et analyses, voici les éléments que j'ai identifiés comme nécessitant une attention particulière :</p>
-      <div class="cs-issues">
-        <div class="cs-issue i1"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2.5" width="14" height="19" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="16" y2="15"/><line x1="8" y1="19" x2="13" y2="19"/></svg></span><b>Longueur Excessive</b></div>
-        <div class="cs-issue i2"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-4 3.5V16H4z"/><path d="M8 10c1-1.4 2-1.4 3 0s2 1.4 3 0"/></svg></span><b>Complexité Linguistique</b></div>
-        <div class="cs-issue i3"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="15" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-3.5 3.5"/><line x1="3.5" y1="20.5" x2="20.5" y2="3.5"/></svg></span><b>Absence de Visualisation</b></div>
-        <div class="cs-issue i4"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5H7a2 2 0 0 0-2 2v15a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M13 2.5v6h6"/><path d="M9 15.5h6M9 18h4" opacity=".55"/></svg></span><b>Format PDF</b></div>
-        <div class="cs-issue i5"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3.5l12.5 6.5-5.4 1.6L11 17.5z"/><line x1="19" y1="4" x2="21" y2="2.5" opacity=".55"/><line x1="20.5" y1="8" x2="22.5" y2="7.5" opacity=".55"/><line x1="17" y1="2" x2="17.5" y2="0.2" opacity=".55"/></svg></span><b>Manque d'Interactivité</b></div>
+      <div class="cs-numgrid">
+        <div class="cs-numitem"><span class="n">01</span><b>Longueur Excessive</b></div>
+        <div class="cs-numitem"><span class="n">02</span><b>Complexité Linguistique</b></div>
+        <div class="cs-numitem"><span class="n">03</span><b>Absence de Visualisation</b></div>
+        <div class="cs-numitem"><span class="n">04</span><b>Format PDF</b></div>
+        <div class="cs-numitem"><span class="n">05</span><b>Manque d'Interactivité</b></div>
       </div>
       </div>
 
