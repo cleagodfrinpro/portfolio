@@ -122,6 +122,16 @@
   .cs-concl .cs-sec{margin-top:0;}
   .cs-concl .cs-secline{margin-top:0;}
   .cs-secintro{font-size:16.5px;line-height:1.7;color:var(--ink);margin:0 0 14px;max-width:none;}
+  .cs-scroll{position:relative;display:flex;align-items:center;gap:22px;background:#fff;border:1px solid rgba(83,74,183,.12);border-left:7px solid var(--violet);border-radius:14px;padding:22px 30px;margin:34px 0 10px;box-shadow:0 14px 30px rgba(78,63,134,.12);}
+  .cs-scroll .ic{display:inline-flex;line-height:0;flex:none;border-radius:50%;filter:drop-shadow(0 5px 11px rgba(78,63,134,.28));animation:csBob 1.8s ease-in-out infinite;transition:transform .15s ease;cursor:pointer;}
+  .cs-scroll .ic:hover,.cs-scroll .ic:focus-visible{transform:scale(1.18) translateY(4px);outline:none;animation-play-state:paused;box-shadow:0 0 0 8px rgba(187,197,248,.5);filter:drop-shadow(0 12px 20px rgba(78,63,134,.45));}
+  .cs-scroll .ic:hover svg circle,.cs-scroll .ic:focus-visible svg circle{fill:#6A54B0;}
+  .cs-scroll .txt{min-width:0;}
+  .cs-scroll .k{display:block;font-family:'Silkscreen';font-size:10px;letter-spacing:1px;color:var(--violet);text-transform:uppercase;margin-bottom:7px;}
+  .cs-scroll p{font-size:16px;line-height:1.62;color:var(--ink);margin:0;}
+  .cs-scroll p strong{color:var(--violet);font-weight:700;}
+  @keyframes csBob{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+  .a11y-reduce .cs-scroll .ic{animation:none;}
   .cs-group{margin:22px 0;}
   .cs-group > :first-child{margin-top:0;}
   .cs-group > :last-child{margin-bottom:0;}
@@ -283,6 +293,8 @@
       <p class="cs-p">Notre étude a finalement permis de dégager plusieurs <strong>pistes concrètes d'évolution</strong>, autour d'un fil conducteur : <strong>préserver la simplicité</strong> qui fait la force de l'application, tout en répondant aux besoins moins visibles des utilisateurs.</p>
 
       <div class="cs-callout idea"><svg class="cs-bulb" viewBox="0 0 40 40" width="52" height="52" fill="none" aria-hidden="true"><path d="M20 6a10 10 0 0 0-6 18c1 .8 1.5 1.6 1.7 2.6l.3 1.4h8l.3-1.4c.2-1 .7-1.8 1.7-2.6A10 10 0 0 0 20 6z" fill="#FDE68A" stroke="#4E3F86" stroke-width="2"/><path d="M16.5 31h7M17.5 34h5" stroke="#4E3F86" stroke-width="2" stroke-linecap="round"/></svg>Grâce à notre étude, Tricount peut continuer à protéger ce que ses utilisateurs aiment, sa simplicité, tout en répondant à des besoins qu'ils n'osent pas toujours formuler : moins de frictions techniques, plus de confiance et un rapport à l'argent en groupe enfin plus serein.</div>
+
+      <div class="cs-scroll"><a class="ic" href="#observation" aria-label="Aller à la première section de détail"><svg viewBox="0 0 46 46" width="46" height="46" fill="none"><circle cx="23" cy="23" r="22" fill="#4E3F86"/><path d="M23 12v19M15 23.5 23 31.5 31 23.5" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="txt"><span class="k">Vous êtes dans le résumé</span><p><strong>Cette introduction est un résumé du projet.</strong> Si vous voulez découvrir tous les détails de la démarche et de mes recherches, poursuivez votre lecture juste en dessous !</p></span></div>
 
       <h2 class="cs-sec" id="observation">Observation et Analyse</h2>
       <hr class="cs-secline">

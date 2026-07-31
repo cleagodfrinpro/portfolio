@@ -103,8 +103,8 @@
   .cs-cols p:last-child{margin-bottom:0;}
 
   /* Lien externe (Figma) */
-  .cs-linkbtn{display:inline-flex;align-items:center;gap:9px;font-family:'Poppins';font-weight:600;font-size:14.5px;color:var(--violet);background:#fff;border:2px solid var(--violet);border-radius:12px;padding:11px 18px;text-decoration:none;box-shadow:3px 3px 0 var(--lav);transition:transform .12s ease,box-shadow .12s ease;margin:2px 0 26px;}
-  .cs-linkbtn:hover{transform:translateY(-1px);box-shadow:4px 4px 0 var(--lav);color:var(--violet);}
+  .cs-linkbtn{display:inline-flex;align-items:center;gap:7px;font-family:'Poppins';font-weight:600;font-size:12.5px;color:var(--violet);background:#fff;border:1.5px solid var(--violet);border-radius:9px;padding:7px 13px;text-decoration:none;box-shadow:2px 2px 0 var(--lav);transition:transform .12s ease,box-shadow .12s ease;margin:2px 0 26px;}
+  .cs-linkbtn:hover{transform:translateY(-1px);box-shadow:3px 3px 0 var(--lav);color:var(--violet);}
 
   /* Encadré « en construction » */
   .cs-wip{position:relative;border:2px dashed var(--lav);background:#FBFAFF;border-radius:16px;padding:26px 30px;margin:18px 0;}
@@ -191,7 +191,7 @@
       </div>
 
       <button class="cs-cover" type="button" aria-label="Agrandir la couverture CNP Assurances">
-        <img src="assets/CNP.webp" alt="Couverture : CNP Assurance, lutter contre la mal-assurance des populations vulnérables.">
+        <img src="assets/CNP.svg" alt="Couverture : CNP Assurance, lutter contre la mal-assurance des populations vulnérables.">
       </button>
 
       <div class="cs-layout">
@@ -225,7 +225,7 @@
           <p>Nous avons posé des <strong>hypothèses initiales</strong> sur les causes de la mal-assurance, mené une <strong>analyse data</strong> <em>(profils de vulnérabilité, taux de non-couverture, KPIs CNP, témoignages clients sur Trustpilot, Opinion Assurances et Green Opinion)</em>, lancé un <strong>questionnaire quantitatif</strong> <em>(60 répondants)</em>, et conduit <strong>4 entretiens qualitatifs</strong> auprès d'utilisateurs aux profils variés.</p>
         </div>
         <div class="cs-step-media">
-          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 1.webp" alt="Résultats du questionnaire : sentiment de sur/sous-assurance et critères de choix d'une assurance."><span class="cs-cap">Questionnaire · 60 répondants</span></button>
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 1.svg" alt="Résultats du questionnaire : sentiment de sur/sous-assurance et critères de choix d'une assurance."><span class="cs-cap">Questionnaire · 60 répondants</span></button>
         </div>
       </div>
 
@@ -233,10 +233,10 @@
         <div class="cs-step-txt">
           <h3>2. Une cartographie systémique du problème</h3>
           <p>Nous avons modélisé <strong>l'architecture des interactions entre parties prenantes</strong> <em>(assurés, CNP, intermédiaires, experts, réglementations, contrats, data)</em> pour identifier les leviers de blocage. Cette analyse a révélé que <strong>la racine du problème est le modèle B2B2C de CNP</strong> : l'assurance est distribuée par les banques <em>(notamment La Banque Postale)</em>, le client final n'a pas réellement choisi, et quand un problème survient, la banque renvoie vers CNP, qui est injoignable.</p>
-          <a class="cs-linkbtn" href="https://www.figma.com/board/vISTEHy6DUyKsDHExpCYnT/Design-Syst%C3%A9mique-Assurance?node-id=0-1&t=HvbVZTC4hEpGGS7s-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>Voir le board Design Systémique sur Figma</a>
+          <a class="cs-linkbtn" href="https://www.figma.com/board/vISTEHy6DUyKsDHExpCYnT/Design-Syst%C3%A9mique-Assurance?node-id=0-1&t=HvbVZTC4hEpGGS7s-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>Pour une meilleure visibilité, voir sur Figma</a>
         </div>
         <div class="cs-step-media">
-          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 2.webp" alt="Design systémique : architecture des interactions entre parties prenantes de l'assurance."><span class="cs-cap">Design systémique</span></button>
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 2.svg" alt="Design systémique : architecture des interactions entre parties prenantes de l'assurance."><span class="cs-cap">Design systémique</span></button>
         </div>
       </div>
 
@@ -244,9 +244,10 @@
         <div class="cs-step-txt">
           <h3>3. La construction de personas et d'une User Journey Map</h3>
           <p>En nous appuyant sur les données récoltées, nous avons construit une <strong>User Journey Map d'un utilisateur mal-assuré</strong>, traçant son parcours de la prise de conscience jusqu'à l'après-sinistre. Cette journey met en lumière les moments de bascule émotionnelle <em>(dépassée → perdue → confuse → frustrée)</em> et les besoins non comblés à chaque étape.</p>
+          <a class="cs-linkbtn" href="https://www.figma.com/board/vISTEHy6DUyKsDHExpCYnT/Design-Syst%C3%A9mique-Assurance?node-id=0-1&t=HvbVZTC4hEpGGS7s-1" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>Pour une meilleure visibilité, voir sur Figma</a>
         </div>
         <div class="cs-step-media">
-          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 3.webp" alt="User Journey Map d'un utilisateur mal-assuré, de la prise de conscience à l'après-sinistre."><span class="cs-cap">User Journey Map</span></button>
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 3.svg" alt="User Journey Map d'un utilisateur mal-assuré, de la prise de conscience à l'après-sinistre."><span class="cs-cap">User Journey Map</span></button>
         </div>
       </div>
 
@@ -256,7 +257,7 @@
           <p>À partir de ces constats, nous avons organisé une <strong>phase d'idéation</strong> sous forme de brainstorming circulaire, regroupant les solutions en plusieurs grandes familles : <strong>un outil de diagnostic automatique</strong> pour détecter les doublons et manques de couverture, <strong>un traducteur de contrats</strong> en langage clair <em>(format FALC)</em>, <strong>des alertes vie</strong> pour anticiper les changements de situation, <strong>un dashboard global des assurances</strong>, ou encore <strong>une interface de diagnostic partagée</strong> entre l'assuré et le conseiller bancaire. Un premier vote collectif a permis de <strong>prioriser</strong> les pistes les plus prometteuses, qui seront approfondies et arbitrées lors de la prochaine phase du projet.</p>
         </div>
         <div class="cs-step-media">
-          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 4.webp" alt="Phase d'idéation : familles de solutions (diagnostic, guide, dashboard, scan, organisation) sur post-its."><span class="cs-cap">Idéation collective</span></button>
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/CNP 4.svg" alt="Phase d'idéation : familles de solutions (diagnostic, guide, dashboard, scan, organisation) sur post-its."><span class="cs-cap">Idéation collective</span></button>
         </div>
       </div>
 
@@ -271,7 +272,7 @@
         </div>
         <div class="cs-end-actions">
           <a href="aimetamarque.html" class="btn ghost"><span aria-hidden="true">←</span> Projet précédent</a>
-          <span class="btn ghost cs-disabled" aria-disabled="true" title="C'est le dernier projet en ligne">Projet suivant <span aria-hidden="true">→</span></span>
+          <a href="design-thinking.html" class="btn ghost">Projet suivant <span aria-hidden="true">→</span></a>
         </div>
       </div>
 

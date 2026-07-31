@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Améliorer l'expérience des transports · Étude de cas — Cléa Godfrin</title>
+<meta name="description" content="Étude de cas Design Thinking : rendre le voyage en transport en commun plus sécurisé, de la phase d'empathie au prototype Lego testé auprès des usagers.">
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+<style>
+  .cs-wrap{max-width:1060px;margin:0 auto;padding:26px 28px 20px;}
+  .cs-backlink{display:inline-flex;align-items:center;gap:8px;box-shadow:2px 2px 0 var(--lav-deep);margin-bottom:22px;}
+  .cs-backlink:hover{box-shadow:3px 3px 0 var(--lav-deep);}
+
+  /* En-tête bannière */
+  .cs-top{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;align-items:stretch;margin-bottom:22px;}
+  .cs-hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#EEEDFE 0%,#FCEFF6 55%,#FFF9F5 100%);border:1px solid rgba(83,74,183,.10);border-radius:16px;padding:34px 36px;display:flex;flex-direction:column;justify-content:center;}
+  .cs-klabel{font-family:'Silkscreen';font-size:13px;letter-spacing:1px;color:var(--violet);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .cs-klabel .sq{width:9px;height:9px;background:var(--rose-Pmid);box-shadow:3px 3px 0 var(--lav);flex:none;}
+  .cs-title{font-family:'Poppins';font-weight:700;font-size:clamp(26px,3.5vw,38px);line-height:1.12;letter-spacing:-.3px;color:#26215C;margin:0 0 13px;display:flex;align-items:baseline;flex-wrap:wrap;gap:12px;}
+  .cs-badge{font-family:'Poppins';font-weight:500;font-size:13px;letter-spacing:.2px;color:#fff;background:var(--violet);border:1px solid var(--violet);border-radius:20px;padding:4px 12px;line-height:1;white-space:nowrap;}
+  .cs-lead{font-family:'Poppins';font-weight:400;font-size:clamp(15.5px,1.8vw,18px);line-height:1.5;color:#26215C;max-width:none;}
+  .cs-cover{display:block;width:100%;padding:0;border:none;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 18px 44px rgba(78,63,134,.2);cursor:zoom-in;transition:transform .2s ease,box-shadow .2s ease;font:inherit;position:relative;margin:0 0 22px;}
+  .cs-cover:hover,.cs-cover:focus-visible{transform:scale(1.006);outline:none;}
+  .cs-cover img{width:100%;display:block;}
+
+  /* Grille métadonnées */
+  .cs-meta{display:grid;grid-template-columns:1fr 1fr;column-gap:44px;row-gap:22px;}
+  .cs-m{display:flex;flex-direction:column;gap:7px;min-width:0;}
+  .cs-ml{font-family:'Poppins';font-weight:600;font-size:12.5px;letter-spacing:.5px;text-transform:uppercase;color:#4A3C86;}
+  .cs-mv{font-family:'Poppins';font-weight:400;font-size:15.5px;line-height:1.4;color:#26215C;}
+  .cs-tags{display:flex;flex-wrap:wrap;gap:8px;}
+  .cs-tag{display:inline-block;font-family:'Poppins';font-weight:500;font-size:13px;color:#534AB7;background:#EEEDFE;border:1px solid rgba(83,74,183,.16);border-radius:20px;padding:5px 13px;line-height:1.2;}
+  .cs-tag.rose{background:#FFE4EF;color:#A23C6E;border-color:#F3C9DC;}
+  .cs-tag.lav{background:#E5E9FC;color:#4A3C86;border-color:#CDD5F6;}
+  .cs-tag.violet{background:#ECE7FB;color:#513E96;border-color:#D8CEF3;}
+  .cs-tag.green{background:#E1F1E9;color:#2C6E50;border-color:#C4E4D3;}
+  .cs-tag.blue{background:#E0ECFA;color:#345F97;border-color:#C6DCF3;}
+  .cs-metacard{background:#fff;border:1px solid rgba(83,74,183,.13);border-radius:16px;padding:24px 26px;box-shadow:0 8px 24px rgba(78,63,134,.06);display:flex;flex-direction:column;gap:15px;}
+  .cs-disabled{opacity:.5;cursor:not-allowed;box-shadow:2px 2px 0 var(--lav-soft);}
+
+  /* Sommaire : rail latéral collant à droite */
+  html{scroll-behavior:smooth;}
+  .cs-layout{display:block;}
+  .cs-main{min-width:0;}
+  .cs-rail{position:fixed;top:104px;right:24px;width:178px;z-index:40;}
+  .cs-rail-h{font-family:'Silkscreen';font-size:10px;letter-spacing:.5px;color:var(--violet-mid);text-transform:uppercase;margin:0 0 14px;line-height:1.5;}
+  .cs-rail a[href^="#"]{display:block;font-family:'Poppins';font-size:14px;color:#9089B8;text-decoration:none;padding:7px 0 7px 14px;border-left:2px solid #E4E1F5;line-height:1.35;transition:color .15s ease,border-color .15s ease;}
+  .cs-rail a[href^="#"]:hover{color:var(--violet);}
+  .cs-rail a[href^="#"].active{color:#1B1440;font-weight:600;border-left-color:var(--violet);}
+  .cs-rail-back{display:inline-flex;align-items:center;gap:6px;font-family:'Poppins';font-size:13px;font-weight:600;color:var(--violet);text-decoration:none;margin-bottom:18px;}
+  .cs-rail-back:hover{color:var(--violet-mid);text-decoration:underline;}
+
+  /* Corps de texte */
+  .cs-h3{font-family:'Poppins';font-weight:700;font-size:19px;color:#1B1440;margin:32px 0 10px;}
+  .cs-h4{font-family:'Poppins';font-weight:700;font-size:16.5px;color:var(--violet);margin:26px 0 8px;}
+  .cs-p{font-size:16px;line-height:1.72;color:var(--ink);margin:0 0 14px;max-width:none;}
+  .cs-quote{position:relative;margin:18px 0;padding:14px 22px;border-left:4px solid var(--violet);border-radius:0 12px 12px 0;background:#fff;box-shadow:0 5px 16px rgba(78,63,134,.09);color:#3B3466;font-size:15px;line-height:1.7;font-style:italic;max-width:none;}
+  .cs-list{margin:6px 0 16px;padding-left:22px;max-width:none;}
+  .cs-list li{font-size:16px;line-height:1.7;color:var(--ink);margin-bottom:9px;}
+  .cs-list ul{margin:8px 0 4px;padding-left:20px;}
+  .cs-list ul li{font-size:15px;margin-bottom:6px;}
+  .cs-qa{margin:6px 0 16px;padding-left:22px;max-width:none;list-style:none;}
+  .cs-qa li{font-size:15.5px;line-height:1.7;color:var(--ink);margin-bottom:16px;padding-left:2px;}
+  .cs-qa .a{display:block;margin-top:5px;color:#3B3466;}
+  .cs-qa .a b{color:var(--violet);}
+
+  /* Interviews : cartes de questions */
+  .cs-qgrid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:20px 0 30px;}
+  .cs-qcard{position:relative;background:#fff;border:1px solid rgba(83,74,183,.13);border-radius:16px;padding:24px 26px 20px;box-shadow:0 8px 22px rgba(78,63,134,.07);overflow:hidden;}
+  .cs-qcard::before{content:'';position:absolute;top:0;left:0;width:6px;height:100%;}
+  .cs-qcard.a::before{background:var(--lav);}
+  .cs-qcard.b::before{background:var(--rose-Pmid);}
+  .cs-qcard h4{font-family:'Poppins';font-weight:700;font-size:15.5px;color:var(--violet);margin:0 0 14px;display:flex;align-items:center;gap:9px;}
+  .cs-qcard h4 .n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;font-family:'Silkscreen';font-size:11px;color:#fff;flex:none;}
+  .cs-qcard.a h4 .n{background:#5B67C4;}
+  .cs-qcard.b h4 .n{background:#C0568A;}
+  .cs-qcard ul{margin:0;padding-left:20px;}
+  .cs-qcard li{font-size:14.5px;line-height:1.62;color:var(--ink);margin-bottom:10px;}
+  .cs-qcard li:last-child{margin-bottom:0;}
+
+  /* Interviews : verbatims */
+  .cs-vq{font-family:'Poppins';font-weight:600;font-size:15px;color:#1B1440;margin:26px 0 2px;}
+  .cs-vb{position:relative;margin:10px 0 18px;padding:16px 20px 16px 22px;border-left:4px solid var(--violet);border-radius:0 12px 12px 0;background:#fff;box-shadow:0 5px 16px rgba(78,63,134,.09);font-size:15px;line-height:1.7;color:#3B3466;}
+  .cs-vb + .cs-vb{margin-top:-6px;}
+  .cs-vb .who{font-family:'Poppins';font-weight:700;font-style:normal;margin-right:4px;}
+  .cs-vb .who.v{color:var(--violet);}
+  .cs-vb .who.r{color:#C0568A;}
+  .cs-vb .who.b{color:#43699F;}
+  .cs-vb .who.g{color:#38855F;}
+
+  /* Slider de verbatims (question + citation) */
+  .cs-vslider{display:flex;gap:20px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:6px 2px 8px;margin:14px 0 4px;scrollbar-width:none;align-items:start;transition:height .28s ease;}
+  .cs-vslider::-webkit-scrollbar{display:none;}
+  .cs-vslide{flex:0 0 100%;scroll-snap-align:start;box-sizing:border-box;}
+  .cs-vslide .cs-vq{margin-top:0;}
+  .cs-vslide .cs-vb{margin-bottom:0;}
+  .cs-vslide .cs-vb + .cs-vb{margin-top:12px;}
+  .cs-vslider.boxed .cs-vslide{background:#fff;border:1px solid rgba(83,74,183,.13);border-radius:16px;padding:24px 26px;box-shadow:0 8px 22px rgba(78,63,134,.07);box-sizing:border-box;}
+  .cs-vslider.boxed .cs-vq{margin:0 0 14px;padding-bottom:13px;border-bottom:1px solid var(--lav-soft);}
+  .cs-vslider.boxed .cs-vb{background:transparent;box-shadow:none;margin:0;}
+  .cs-vslider.boxed .cs-vb + .cs-vb{margin-top:12px;}
+  .cs-slidernav{display:flex;gap:12px;align-items:center;justify-content:center;margin:10px 0 20px;}
+  .cs-slidernav button{width:34px;height:34px;border-radius:10px;border:2px solid var(--violet);background:#fff;color:var(--violet);cursor:pointer;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 3px 0 var(--lav);transition:transform .1s ease,box-shadow .1s ease;}
+  .cs-slidernav button:hover{transform:translateY(-1px);box-shadow:0 4px 0 var(--lav);}
+  .cs-slidernav button:disabled{opacity:.32;cursor:not-allowed;transform:none;box-shadow:0 3px 0 var(--lav);}
+  .cs-slidernav .dots{display:flex;gap:7px;}
+  .cs-slidernav .dot{width:8px;height:8px;border-radius:50%;background:var(--lav);transition:background .15s ease,transform .15s ease;}
+  .cs-slidernav .dot.on{background:var(--violet);transform:scale(1.25);}
+
+  /* Carrousel de storyboards */
+  .cs-carousel{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 2px 8px;margin:18px 0 4px;scrollbar-width:none;align-items:start;transition:height .28s ease;}
+  .cs-carousel::-webkit-scrollbar{display:none;}
+  .cs-cslide{flex:0 0 100%;scroll-snap-align:start;box-sizing:border-box;}
+  .cs-cslide .cs-h4{margin-top:0;}
+  .cs-cslide .cs-img{transform:none;margin:12px 0 0;}
+  .cs-cslide .cs-img:hover,.cs-cslide .cs-img:focus-visible{transform:scale(1.01);}
+  .cs-cslide .cs-imgcap{margin-bottom:0;}
+
+  /* Phase d'idéation : brainstorm + idées retenues */
+  .cs-brainpanel{background:none;border:none;border-radius:0;padding:0;margin:16px 0 26px;}
+  .cs-brainpanel > .cs-brainhead{font-family:'Poppins';font-weight:700;font-size:19px;color:#1B1440;margin:0 0 10px;}
+  .cs-brainpanel > .cs-braintxt{font-size:15.5px;line-height:1.62;color:var(--ink);margin:0 0 20px;}
+  .cs-brainpanel .lbl{font-family:'Poppins';font-weight:700;font-size:15px;color:var(--violet);margin:0 0 16px;display:flex;align-items:center;gap:9px;}
+  .cs-ideas{display:flex;flex-wrap:wrap;gap:12px;list-style:none;margin:0;padding:0;max-width:none;}
+  .cs-ideas li{position:relative;flex:1 1 300px;background:#fff;border:1px solid rgba(83,74,183,.1);border-radius:12px;padding:13px 16px 13px 40px;font-size:14.5px;line-height:1.48;color:#3B3466;box-shadow:0 6px 14px rgba(78,63,134,.07);}
+  .cs-ideas li::before{content:'';position:absolute;left:16px;top:17px;width:10px;height:10px;border-radius:50%;background:var(--rose-Pmid);box-shadow:0 0 0 3px rgba(238,182,210,.3);}
+  .cs-retained{background:#fff;border:2px solid var(--violet);border-radius:16px;box-shadow:6px 6px 0 var(--lav);padding:6px 28px;margin:16px 0 8px;}
+  .cs-retrow{display:flex;align-items:center;gap:18px;padding:20px 0;border-bottom:1px solid #EEE8F8;}
+  .cs-retrow:last-child{border-bottom:none;}
+  .cs-retrow .chk{flex:none;display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--violet);box-shadow:0 4px 10px rgba(78,63,134,.3);}
+  .cs-retrow .num{flex:none;font-family:'Silkscreen';font-size:13px;color:var(--violet);}
+  .cs-retrow p{margin:0;font-size:15.5px;line-height:1.55;color:#3B3466;}
+  .cs-rethead{padding:22px 2px 18px;border-bottom:1px solid #EEE8F8;}
+  .cs-rethead h4{font-family:'Poppins';font-weight:700;font-size:18px;color:#1B1440;margin:0 0 8px;}
+  .cs-rethead p{margin:0;font-size:15px;line-height:1.55;color:var(--ink);}
+
+  /* Trame + Test utilisateurs sur deux colonnes */
+  .cs-testcols{display:grid;grid-template-columns:1fr 1fr;gap:38px;align-items:start;margin:10px 0 8px;}
+  .cs-testcols .cs-h3{margin-top:0;}
+  .cs-testcol{min-width:0;}
+  @media(max-width:820px){ .cs-testcols{grid-template-columns:1fr;gap:10px;} }
+
+  /* Bloc coloré Test utilisateurs */
+  .cs-testpanel{background:linear-gradient(135deg,#EFEAFB 0%,#F8EEF5 100%);border:1px solid rgba(83,74,183,.1);border-radius:20px;padding:28px 32px 32px;margin:18px 0 8px;}
+  .cs-testpanel .cs-h3{margin-top:0;}
+  .cs-testpanel .cs-h4{margin-top:30px;}
+  .cs-testpanel .cs-note{background:#fff;}
+  @media(max-width:820px){ .cs-testpanel{padding:22px 18px 24px;} }
+
+  /* Interviews : synthèse en cartes */
+  .cs-syn{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin:22px 0 34px;align-items:start;}
+  .cs-syncard{background:#fff;border:2.5px solid var(--violet);border-radius:16px;padding:26px 28px 22px;box-shadow:6px 6px 0 var(--lav);}
+  .cs-syncard:last-child{grid-column:1 / -1;}
+  .cs-syncard:last-child ul{columns:2;column-gap:34px;}
+  .cs-syncard:last-child li{break-inside:avoid;}
+  .cs-syncard h4{font-family:'Poppins';font-weight:700;font-size:17px;color:#1B1440;margin:0 0 15px;line-height:1.3;padding-bottom:13px;border-bottom:2px solid var(--lav-soft);}
+  .cs-syncard ul{margin:0;padding-left:19px;}
+  .cs-syncard li{font-size:15px;line-height:1.6;color:var(--ink);margin-bottom:13px;}
+  .cs-syncard li:last-child{margin-bottom:0;}
+  .cs-syncard li b{color:var(--violet);font-weight:600;}
+
+  /* Cartes clés (façon « Synthèse des enseignements » Tricount) */
+  .cs-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0 8px;}
+  .cs-keycard{background:#fff;border:1px solid rgba(83,74,183,.13);border-radius:16px;padding:22px 24px;box-shadow:0 8px 22px rgba(78,63,134,.06);}
+  .cs-keycard.wide{grid-column:1 / -1;}
+  .cs-keycard .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:10px;font-family:'Silkscreen';font-size:14px;color:#fff;margin-bottom:12px;}
+  .cs-keycard h4{font-family:'Poppins';font-weight:700;font-size:16px;color:#1B1440;margin:0 0 8px;line-height:1.3;}
+  .cs-keycard p{font-size:14.5px;line-height:1.62;color:var(--ink);margin:0 0 8px;}
+  .cs-keycard p:last-child{margin-bottom:0;}
+  .cs-keycard ul{margin:6px 0 0;padding-left:18px;}
+  .cs-keycard li{font-size:14px;line-height:1.55;color:var(--ink);margin-bottom:7px;}
+  .cs-keycard li:last-child{margin-bottom:0;}
+  .cs-keycard.c1 .num{background:#C0568A;}
+  .cs-keycard.c2 .num{background:#5B67C4;}
+  .cs-keycard.c3 .num{background:#6A54B0;}
+  .cs-keycard.c4 .num{background:#38855F;}
+  .cs-keycard.c5 .num{background:#43699F;}
+
+  /* Image ↔ texte (façon Flying Secoya / Notion) */
+  .cs-step{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin:60px 0;}
+  .cs-step.flip .cs-step-txt{order:2;}
+  .cs-step-txt{min-width:0;}
+  .cs-step-txt h3{font-family:'Poppins';font-weight:700;font-size:21px;color:#1B1440;margin:0 0 20px;line-height:1.25;}
+  .cs-step-txt h4{font-family:'Poppins';font-weight:700;font-size:17px;color:var(--violet);margin:0 0 10px;}
+  .cs-step-txt p{font-size:16px;line-height:1.72;color:var(--ink);margin:0 0 12px;}
+  .cs-step-txt p:last-child{margin-bottom:0;}
+  .cs-step-media{min-width:0;}
+
+  /* Images polaroïd cliquables */
+  .cs-fig{position:relative;display:block;width:100%;padding:12px 12px 14px;border:none;border-radius:6px;background:#fff;box-shadow:0 14px 32px rgba(78,63,134,.16);cursor:zoom-in;transform:rotate(-1.8deg);transition:transform .3s ease,box-shadow .3s ease;font:inherit;}
+  .cs-step.flip .cs-fig{transform:rotate(1.8deg);}
+  .cs-fig:hover,.cs-fig:focus-visible{transform:rotate(0deg) scale(1.02);box-shadow:0 22px 42px rgba(78,63,134,.22);outline:none;}
+  .cs-fig img{width:100%;border-radius:3px;display:block;}
+  .cs-cap{display:block;font-family:'Silkscreen';font-size:11px;letter-spacing:.5px;color:var(--violet-mid);text-align:center;margin-top:11px;line-height:1.5;}
+  .cs-fig::after,.cs-img::after,.cs-cover::after{content:'';position:absolute;top:13px;right:13px;width:27px;height:27px;border-radius:8px;background:rgba(78,63,134,.5) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cline x1='15.5' y1='15.5' x2='21' y2='21'/%3E%3C/svg%3E") center/15px no-repeat;opacity:1;transition:transform .18s ease,background-color .18s ease;pointer-events:none;}
+  .cs-fig:hover::after,.cs-fig:focus-visible::after,.cs-img:hover::after,.cs-img:focus-visible::after,.cs-cover:hover::after,.cs-cover:focus-visible::after{transform:scale(1.12);background-color:var(--violet);}
+
+  /* Grande image pleine largeur (diagramme / tableau) */
+  .cs-img{position:relative;display:block;width:100%;padding:12px 12px 14px;border:none;border-radius:6px;background:#fff;box-shadow:0 14px 32px rgba(78,63,134,.16);cursor:zoom-in;transform:rotate(-1.2deg);transition:transform .3s ease,box-shadow .3s ease;font:inherit;margin:24px 0 6px;}
+  .cs-img:hover,.cs-img:focus-visible{transform:rotate(0deg) scale(1.02);box-shadow:0 22px 42px rgba(78,63,134,.22);outline:none;}
+  .cs-img img{width:100%;display:block;border-radius:3px;}
+  .cs-imgcap{display:block;font-family:'Silkscreen';font-size:11px;letter-spacing:.5px;color:var(--violet-mid);text-align:center;margin:10px 0 24px;}
+  .cs-read{display:block;font-size:14px;font-style:italic;color:var(--violet-mid);margin:2px 0 0;}
+
+  /* Callouts */
+  .cs-callout{position:relative;border-radius:16px;padding:28px 26px 22px;margin:34px 0 26px;font-size:16px;line-height:1.62;color:var(--ink);background:#fff;border:3px solid var(--violet);box-shadow:7px 7px 0 var(--lav);}
+  .cs-callout .ic{margin-right:8px;}
+  .cs-pin{position:absolute;top:-28px;left:-24px;transform:scaleX(-1) rotate(-14deg);width:56px;height:56px;filter:drop-shadow(0 4px 4px rgba(78,63,134,.3));}
+  .cs-qmark{position:absolute;top:-24px;left:-12px;transform:rotate(-12deg);width:52px;height:52px;filter:drop-shadow(0 4px 4px rgba(78,63,134,.28));}
+  .cs-bulb{position:absolute;top:-26px;left:-12px;transform:rotate(-10deg);width:52px;height:52px;filter:drop-shadow(0 4px 4px rgba(78,63,134,.28));}
+  .cs-callout.q{background:var(--rose);border:2px solid var(--rose-Pmid);box-shadow:none;}
+  .cs-callout.idea{background:#EFE9FB;border:2px solid var(--lav);box-shadow:none;}
+  .cs-note{position:relative;border-radius:14px;padding:24px 30px 26px 46px;margin:18px 0;color:#3A3357;font-size:16px;line-height:1.72;background:#fff;border:1px solid #ECE4F1;box-shadow:0 10px 26px rgba(78,63,134,.08);}
+  .cs-note::after{content:'';position:absolute;left:17px;top:22px;bottom:22px;width:7px;background-image:radial-gradient(circle,#D9D2BF 3px,transparent 3.4px);background-size:7px 24px;background-repeat:repeat-y;}
+  .cs-note .ic{margin-right:6px;}
+  .cs-note .cs-list{margin-bottom:0;}
+  .cs-note p{margin:0 0 12px;}
+  .cs-note .lego{font-style:italic;color:var(--violet-mid);margin:4px 0 10px;}
+
+  /* Vidéo intégrée (Google Drive) — format portrait */
+  .cs-videowrap{margin:16px 0 8px;}
+  .cs-videostage{display:block;}
+  .cs-video{position:relative;width:min(330px,72vw);margin:0 auto;aspect-ratio:9/16;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 22px 50px rgba(78,63,134,.32);}
+  .cs-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+  .cs-videonote{font-style:italic;color:var(--violet-mid);font-size:14.5px;margin:14px 0 0;}
+
+  .cs-sec{font-family:'Poppins';font-weight:800;font-size:clamp(21px,2.6vw,27px);letter-spacing:-.3px;color:#1B1440;margin:58px 0 8px;scroll-margin-top:90px;}
+  .cs-secline{height:0;border:none;border-top:2px solid var(--lav-soft);margin:0 0 22px;}
+  .cs-divider{height:0;border:none;border-top:2px solid var(--lav-soft);margin:40px 0 30px;}
+  .cs-concl{background:#fff;border:3px solid var(--violet);border-radius:16px;box-shadow:9px 9px 0 var(--lav);padding:28px 34px 32px;margin:44px 0 30px;}
+  .cs-concl .cs-sec{margin-top:0;}
+  .cs-concl .cs-secline{margin-top:0;}
+  .cs-secintro{font-size:16.5px;line-height:1.7;color:var(--ink);margin:0 0 14px;max-width:none;}
+  .cs-gal2{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin:28px 0 6px;align-items:start;}
+
+  /* Proposition de problématique : post-it de brainstorming + choix retenu */
+  .cs-hmw{display:flex;flex-wrap:wrap;gap:22px;margin:24px 0 40px;padding:10px 0 0;list-style:none;max-width:none;}
+  .cs-hmw li{position:relative;flex:1 1 calc(50% - 22px);min-width:240px;padding:28px 22px 24px;border-radius:3px;font-family:'Poppins';font-weight:500;font-size:15.5px;line-height:1.48;color:#3B3466;box-shadow:0 12px 24px rgba(78,63,134,.15);}
+  .cs-hmw li::before{content:'';position:absolute;top:-11px;left:50%;transform:translateX(-50%) rotate(-3deg);width:74px;height:22px;background:rgba(187,197,248,.5);box-shadow:0 1px 2px rgba(78,63,134,.12);}
+  .cs-hmw li:nth-child(4n+1){background:#EAE7FB;transform:rotate(-1.5deg);}
+  .cs-hmw li:nth-child(4n+2){background:#FCE3EF;transform:rotate(1.3deg);}
+  .cs-hmw li:nth-child(4n+3){background:#E3F0E9;transform:rotate(1deg);}
+  .cs-hmw li:nth-child(4n){background:#FBF0DB;transform:rotate(-1.1deg);}
+  .cs-hmw li:hover{transform:rotate(0deg) translateY(-3px);box-shadow:0 16px 30px rgba(78,63,134,.2);transition:transform .2s ease,box-shadow .2s ease;}
+  .cs-pick{position:relative;background:#fff;border:1px solid rgba(83,74,183,.16);border-left:5px solid var(--violet);border-radius:14px;padding:22px 28px;margin:24px 0 8px;box-shadow:0 8px 22px rgba(78,63,134,.07);}
+  .cs-pick-tag{display:block;font-family:'Silkscreen';font-size:10px;letter-spacing:1px;color:var(--violet);text-transform:uppercase;margin-bottom:9px;}
+  .cs-pick p{font-family:'Poppins';font-weight:700;font-size:clamp(17px,2vw,20px);color:var(--violet);margin:0;line-height:1.34;}
+
+  /* Bandeau de transition : résumé -> détail */
+  .cs-scroll{position:relative;display:flex;align-items:center;gap:22px;background:#fff;border:1px solid rgba(83,74,183,.12);border-left:7px solid var(--violet);border-radius:14px;padding:22px 30px;margin:34px 0 10px;box-shadow:0 14px 30px rgba(78,63,134,.12);}
+  .cs-scroll .ic{display:inline-flex;line-height:0;flex:none;border-radius:50%;filter:drop-shadow(0 5px 11px rgba(78,63,134,.28));animation:csBob 1.8s ease-in-out infinite;transition:transform .15s ease;cursor:pointer;}
+  .cs-scroll .ic:hover,.cs-scroll .ic:focus-visible{transform:scale(1.18) translateY(4px);outline:none;animation-play-state:paused;box-shadow:0 0 0 8px rgba(187,197,248,.5);filter:drop-shadow(0 12px 20px rgba(78,63,134,.45));}
+  .cs-scroll .ic:hover svg circle,.cs-scroll .ic:focus-visible svg circle{fill:#6A54B0;}
+  .cs-scroll .txt{min-width:0;}
+  .cs-scroll .k{display:block;font-family:'Silkscreen';font-size:10px;letter-spacing:1px;color:var(--violet);text-transform:uppercase;margin-bottom:7px;}
+  .cs-scroll p{font-size:16px;line-height:1.62;color:var(--ink);margin:0;}
+  .cs-scroll p strong{color:var(--violet);font-weight:700;}
+  @keyframes csBob{0%,100%{transform:translateY(0);}50%{transform:translateY(4px);}}
+  .a11y-reduce .cs-scroll .ic{animation:none;}
+
+  .cs-cols{display:grid;grid-template-columns:1fr 1fr;gap:36px;}
+  .cs-cols h3{font-family:'Poppins';font-weight:700;font-size:18px;color:var(--violet);margin-bottom:12px;}
+  .cs-cols p{font-size:15.5px;line-height:1.72;color:var(--ink);}
+
+  .cs-end{margin:56px 0 30px;padding-top:30px;border-top:2px solid var(--lav-soft);display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:space-between;}
+  .cs-end-actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+
+  em{font-style:normal;opacity:1;}
+  strong{font-weight:600;}
+
+  .lb{position:fixed;inset:0;background:rgba(27,20,64,.92);display:flex;align-items:center;justify-content:center;padding:34px;z-index:999;opacity:0;visibility:hidden;transition:opacity .22s ease;cursor:zoom-out;}
+  .lb.open{opacity:1;visibility:visible;}
+  .lb img{max-width:95vw;max-height:90vh;border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,.5);}
+  .lb-close{position:absolute;top:18px;right:24px;font-size:34px;line-height:1;color:#fff;background:none;border:none;cursor:pointer;font-family:'Poppins';z-index:2;}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:54px;height:54px;border-radius:50%;border:none;background:rgba(255,255,255,.16);color:#fff;font-size:30px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s ease,transform .15s ease;z-index:2;}
+  .lb-prev{left:22px;} .lb-next{right:22px;}
+  .lb-nav:hover{background:rgba(255,255,255,.32);}
+  .lb-nav:active{transform:translateY(-50%) scale(.94);}
+  .lb-nav:disabled{opacity:.25;cursor:not-allowed;}
+  .lb-count{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);font-family:'Silkscreen';font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.85);}
+
+  @media(max-width:820px){
+    .cs-top{grid-template-columns:1fr;gap:16px;}
+    .cs-cols{grid-template-columns:1fr;gap:24px;}
+    .cs-meta,.cs-metacard{grid-template-columns:1fr;row-gap:18px;}
+    .cs-concl{padding:22px 18px;box-shadow:5px 5px 0 var(--lav);}
+    .cs-gal2{grid-template-columns:1fr;gap:34px;}
+    .cs-qgrid{grid-template-columns:1fr;}
+    .cs-syn{grid-template-columns:1fr;}
+    .cs-syncard:last-child ul{columns:1;}
+    .cs-retained{grid-template-columns:1fr;}
+    .cs-cards{grid-template-columns:1fr;}
+    .cs-end{justify-content:center;}
+    .cs-end-actions{justify-content:center;}
+    .cs-step{grid-template-columns:1fr;gap:22px;}
+    .cs-step.flip .cs-step-txt{order:0;}
+    .cs-step-media{max-width:480px;margin:0 auto;}
+  }
+  @media(max-width:1520px){ .cs-rail{display:none;} }
+</style>
+</head>
+<body>
+
+  <div class="a11y">
+    <button class="a11y-toggle" aria-expanded="false" aria-controls="a11y-panel">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" fill="currentColor"><circle cx="12" cy="3.5" r="2"/><path d="M20 7.5a1 1 0 0 1 0 2l-5 .6V13l1.8 6.1a1 1 0 0 1-1.9.6L13 15.5h-2l-1.9 4.2a1 1 0 0 1-1.9-.6L9 13v-2.9l-5-.6a1 1 0 0 1 0-2h16z"/></svg>
+      <span>Accessibilité</span>
+    </button>
+    <div class="a11y-panel" id="a11y-panel" hidden>
+      <p class="a11y-title">Accessibilité</p>
+      <button type="button" data-a11y="big" aria-pressed="false">Texte plus grand</button>
+      <button type="button" data-a11y="contrast" aria-pressed="false">Contraste élevé</button>
+      <button type="button" data-a11y="reduce" aria-pressed="false">Réduire les animations</button>
+      <button type="button" data-a11y="links" aria-pressed="false">Souligner les liens</button>
+    </div>
+  </div>
+
+  <nav aria-label="Navigation principale">
+    <div class="nav-in">
+      <a href="index.html" class="brand" aria-label="Cléa Godfrin, accueil">
+        <span class="logo">CG</span>
+        <span class="brand-name">Cléa Godfrin</span>
+      </a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+        onclick="var n=document.getElementById('nl');var o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)">☰</button>
+      <div class="nav-links" id="nl">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#apropos">À propos</a>
+        <a href="index.html#competences">Compétences</a>
+        <a href="index.html#epopees">Projets</a>
+        <a href="index.html#passions">Passions</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    <article class="cs-wrap">
+
+      <a href="index.html#epopees" class="btn ghost cs-backlink"><span aria-hidden="true">←</span> Retour aux projets</a>
+
+      <div class="cs-top">
+        <div class="cs-hero">
+          <p class="cs-klabel"><span class="sq"></span><span aria-hidden="true">⊹</span> ÉTUDE DE CAS</p>
+          <h1 class="cs-title">Améliorer l'expérience des transports <span class="cs-badge">Projet scolaire</span></h1>
+          <p class="cs-lead">Comment rendre le voyage en transport en commun plus sécurisé ?</p>
+        </div>
+        <aside class="cs-metacard">
+          <div class="cs-m"><span class="cs-ml">Domaine</span><span class="cs-mv">UX Design · Design Thinking</span></div>
+          <div class="cs-m"><span class="cs-ml">Durée</span><span class="cs-mv">1 semaine</span></div>
+          <div class="cs-m"><span class="cs-ml">Rôle</span><span class="cs-mv">UX Designer</span></div>
+          <div class="cs-m"><span class="cs-ml">Outils de création</span><span class="cs-tags"><span class="cs-tag blue">FigJam</span><span class="cs-tag lav">Figma</span><span class="cs-tag rose">Lego</span></span></div>
+          <div class="cs-m"><span class="cs-ml">Type de mission</span><span class="cs-tags"><span class="cs-tag violet">Design Thinking</span><span class="cs-tag green">UX Research</span></span></div>
+        </aside>
+      </div>
+
+      <button class="cs-cover" type="button" aria-label="Agrandir la couverture">
+        <img src="assets/Design thinking.webp" alt="Prototype en Lego d'un quai de métro et d'un train, avec une diapositive Design Thinking : comment rendre le voyage en transport en commun plus sécurisé ?">
+      </button>
+
+      <div class="cs-layout">
+        <div class="cs-main">
+
+      <div class="cs-callout"><svg class="cs-pin" viewBox="0 0 40 40" width="54" height="54" fill="none" aria-hidden="true"><line x1="18" y1="19.5" x2="9.5" y2="30.5" stroke="#4E3F86" stroke-width="2.4" stroke-linecap="round"/><circle cx="21.5" cy="14" r="8.5" fill="#FCD9E7" stroke="#4E3F86" stroke-width="2.2"/><circle cx="21.5" cy="14" r="2.6" fill="#EEB6D2"/></svg>Prendre les transports en commun s'accompagne souvent de soucis, en particulier en matière de sécurité, ce qui rend l'expérience plus stressante et parfois désagréable. C'est pourquoi renforcer les dispositifs de sécurité peut jouer un rôle essentiel pour protéger les usagers et réduire les risques.</div>
+
+      <h2 class="cs-sec" id="introduction">Introduction</h2>
+      <hr class="cs-secline">
+
+      <h3 class="cs-h3">Contexte</h3>
+      <p class="cs-p">Projet réalisé en groupe de quatre dans le cadre de mon master à l'IIM Digital School, conçu pour nous initier aux méthodes de Design Thinking. Ce projet tourne autour du thème des transports en commun et explore plus précisément la question suivante : <em>Comment améliorer l'expérience utilisateur des transports en commun locaux ?</em></p>
+
+      <h3 class="cs-h3">Problématique</h3>
+      <p class="cs-p">Si <em>(je l'espère !)</em> vous continuez à lire mon projet, vous verrez que nous avons choisi de nous concentrer sur une problématique spécifique pour améliorer l'expérience des utilisateurs des transports en commun. Grâce à nos interviews et recherches, nous avons identifié un véritable problème de <strong>sécurité</strong> qui impacte fortement cette expérience. Ce manque de sécurité réduit l'envie d'utiliser les transports, un constat qui a orienté notre démarche.</p>
+
+      <div class="cs-callout q"><svg class="cs-qmark" viewBox="0 0 40 40" width="54" height="54" aria-hidden="true"><text x="20" y="33" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="38" fill="#FCD9E7" stroke="#4E3F86" stroke-width="3.4" paint-order="stroke" stroke-linejoin="round">?</text></svg>Alors, comment pourrions-nous rendre le voyage plus sécurisé ?</div>
+
+      <h3 class="cs-h3">Notre solution : des portiques de sécurité sur tous les quais de métro et RER</h3>
+      <p class="cs-p">Qui n'a jamais ressenti cette peur, lorsque le train arrive et que le quai est bondé, de se faire pousser, que ce soit par accident ou intentionnellement ? C'est une inquiétude que nous avons constatée lors de nos études et de nos interviews <em>(que je vous invite à consulter juste après)</em>. Notre objectif était de permettre aux usagers de se sentir sereins et en sécurité en attendant leur train, afin d'améliorer leur expérience de voyage.</p>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>1. Un accès équitable à la sécurité</h3>
+          <p>Au final, n'est-il pas injuste que des métros comme la ligne 1 puissent bénéficier de portiques de sécurité alors que d'autres n'en ont pas ? Pourquoi une solution aussi efficace ne serait-elle pas présente pour TOUS les métros et RER ? Pas de panique, chez nous, 0 injustice ! Notre solution propose des portiques de sécurité pour tous !</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 1.webp" alt="Prototype Lego du quai et du train avec la mention : un accès équitable à la sécurité."><span class="cs-cap">Un accès équitable à la sécurité</span></button>
+        </div>
+      </div>
+
+      <div class="cs-step flip">
+        <div class="cs-step-txt">
+          <h3>2. Prévention et protection des vies</h3>
+          <p>Il est crucial de souligner qu'environ 500 personnes se jettent chaque année sur les rails. Notre solution, en plus de rehausser l'expérience des usagers, pourrait véritablement jouer un rôle dans la protection des vies.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 2.webp" alt="Prototype Lego d'un portique de sécurité sur le quai, avec la mention : prévention et protection des vies."><span class="cs-cap">Prévention et protection des vies</span></button>
+        </div>
+      </div>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>3. Réduction des retards liés aux intrusions</h3>
+          <p>Si, comme moi, vous prenez souvent le RER, vous avez déjà dû faire la malheureuse expérience de retards de train à cause de « personnes présentes sur les voies ». Et si nous essayions de stopper cela ? En mettant en place des portiques de sécurité, nous pourrions empêcher l'accès aux voies et ainsi diminuer significativement les retards.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 3.webp" alt="Prototype Lego du train et du quai en construction, avec la mention : réduction des retards liés aux intrusions."><span class="cs-cap">Réduction des retards liés aux intrusions</span></button>
+        </div>
+      </div>
+
+      <div class="cs-callout idea"><svg class="cs-bulb" viewBox="0 0 40 40" width="52" height="52" fill="none" aria-hidden="true"><path d="M20 6a10 10 0 0 0-6 18c1 .8 1.5 1.6 1.7 2.6l.3 1.4h8l.3-1.4c.2-1 .7-1.8 1.7-2.6A10 10 0 0 0 20 6z" fill="#FDE68A" stroke="#4E3F86" stroke-width="2"/><path d="M16.5 31h7M17.5 34h5" stroke="#4E3F86" stroke-width="2" stroke-linecap="round"/></svg>Grâce à notre solution, les usagers peuvent attendre leur train en toute sérénité, sans la peur d'être bousculés, et profiter d'une expérience de transport plus agréable.</div>
+
+      <div class="cs-scroll"><a class="ic" href="#empathie" aria-label="Aller à la première section de détail"><svg viewBox="0 0 46 46" width="46" height="46" fill="none"><circle cx="23" cy="23" r="22" fill="#4E3F86"/><path d="M23 12v19M15 23.5 23 31.5 31 23.5" stroke="#fff" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a><span class="txt"><span class="k">Vous êtes dans le résumé</span><p><strong>Cette introduction est un résumé du projet.</strong> Si vous voulez découvrir tous les détails de la démarche, de la phase d'empathie jusqu'aux tests utilisateurs, poursuivez votre lecture juste en dessous !</p></span></div>
+
+      <h2 class="cs-sec" id="empathie">Empathie</h2>
+      <hr class="cs-secline">
+      <p class="cs-secintro">Dans cette section, nous explorerons les recherches menées au cours de la phase d'empathie, qui inclut le Design Thinking, le parcours utilisateurs, les interviews et la création de personas. Ces étapes nous ont permis de comprendre en profondeur les besoins des usagers des transports en commun, d'identifier leurs frustrations et d'envisager des solutions concrètes. Prêt à découvrir ce parcours ? <span aria-hidden="true">✨</span></p>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Design Thinking</h3>
+          <p>Tout au long de ce projet, nous avons appliqué la méthode Design Thinking, avec pour objectif de découvrir rapidement chacune de ses phases et d'en saisir les principes clés.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 4.webp" alt="Les cinq phases de la méthode Design Thinking : Empathie, Définition, Idéation, Prototype et Test, avec leurs sous-étapes."><span class="cs-cap">Les phases de la méthode Design Thinking</span></button>
+        </div>
+      </div>
+
+      <div class="cs-step flip">
+        <div class="cs-step-txt">
+          <h3>Parcours utilisateur</h3>
+          <p>Nous avons commencé par cartographier le parcours utilisateur en trois étapes clés : avant, pendant, et après son trajet, pour analyser chaque moment, de la préparation au déplacement jusqu'à l'arrivée. Cela nous a permis de comprendre les différentes étapes du parcours et de poser les bases pour une expérience utilisateur plus fluide et agréable.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 5.webp" alt="Parcours utilisateur décomposé en trois temps : avant, pendant et après le trajet, avec les besoins de l'usager à chaque étape."><span class="cs-cap">Parcours utilisateur : avant, pendant, après</span></button>
+        </div>
+      </div>
+
+      <h3 class="cs-h3">Interviews</h3>
+      <p class="cs-p">Nous avons ensuite préparé nos interviews, car pour obtenir des informations pertinentes, il est essentiel de poser les bonnes questions ! Nous avons donc structuré l'introduction de l'interview et élaboré plusieurs questions, réparties en catégories. La première série de questions portait sur des aspects généraux afin de mieux cerner le profil de l'usager, tandis que la seconde série se concentrait sur les problèmes rencontrés et les solutions envisageables.</p>
+      <p class="cs-p">Vous pouvez voir en dessous quelques exemples des questions posées ! <span aria-hidden="true">👇</span></p>
+
+      <div class="cs-qgrid">
+        <div class="cs-qcard a">
+          <h4><span class="n">01</span> Questions générales</h4>
+          <ul>
+            <li>Quels types de transport utilisez-vous, régulièrement ? Et pour quels types de trajets ?</li>
+            <li>Quels critères sont les plus importants pour vous quand vous choisissez un moyen de transport ?</li>
+            <li>Avez-vous tendance à utiliser des tickets de métro ou une carte Navigo ?</li>
+            <li>Quel est votre ressenti global sur les transports en commun dans votre ville ?</li>
+          </ul>
+        </div>
+        <div class="cs-qcard b">
+          <h4><span class="n">02</span> Questions sur les problèmes et solutions</h4>
+          <ul>
+            <li>À présent, nous aimerions que vous réfléchissiez aux éventuels problèmes ou frustrations que vous avez pu rencontrer dans les transports en commun. Pourriez-vous nous en citer quelques-uns qui vous viennent à l'esprit ?</li>
+            <li>Quelles sont les frustrations que tu rencontres lors de tes déplacements ? <em>(avant, pendant, après)</em></li>
+            <li>Racontez-moi quelle a été la pire expérience vécue lors d'un voyage ?</li>
+            <li>Selon vous, quelles seraient les pistes d'amélioration qui pourraient être apportées aux transports en commun ?</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="cs-p">Après avoir préparé notre interview, nous avons mené des entretiens avec trois utilisateurs de transports en commun : Camille, Tristan et Nicolas. L'objectif était de mieux comprendre leurs ressentis, les difficultés rencontrées, ainsi que leurs attentes en matière d'amélioration pour les transports. Voici quelques exemples de réponses que nous avons obtenues.</p>
+
+      <div class="cs-vslider">
+        <div class="cs-vslide">
+          <p class="cs-vq">Combien de temps passez-vous en moyenne dans les transports ?</p>
+          <blockquote class="cs-vb"><span class="who v">Camille</span> 1h30 environ par jour seulement pendant les semaines de cours.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Quelles sont les frustrations que tu rencontres lors de tes déplacements ? <em>(avant, pendant, après)</em></p>
+          <blockquote class="cs-vb"><span class="who r">Tristan</span> Prendre de l'avance car les transports aléatoires <em>(ce qui entraîne une perte de temps)</em>, les transports manquent d'aération et il fait souvent trop chaud, à la sortie de la gare, il y a trop de monde et pas assez de portiques.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Selon vous, quelles seraient les pistes d'amélioration qui pourraient être apportées aux transports en commun ?</p>
+          <blockquote class="cs-vb"><span class="who b">Nicolas</span> Pour moi, surtout au niveau logistique, il y a trop de problèmes au niveau de l'électronique. C'est incohérent aux niveaux des endroits, certains métros/trains sont plus sécurisé que d'autres, certains sont plus propres que d'autres. Ce n'est pas normal, que les gens se disent que la ligne 8, c'est nul, mais que la ligne 1, c'est bien, ce n'est pas logique. Tout devrait être pareil.<br><br>Il devrait avoir un pass pour tout le monde. C'est-à-dire, chaque personne à un pass Navigo, si la personne a acheté un forfait, ça utilise le forfait, sinon le passe Navigo fonctionne quand meme, mais il est débité à l'utilisation. En gros que tout le monde est un pass liberté, mais qu'il soit accessible pour tout le monde et qu'il fonctionne pour les trains <em>(car actuellement ce n'est que les métros)</em>. Il y a aura plus de ticket et ça sera plus simple.</blockquote>
+        </div>
+      </div>
+      <div class="cs-slidernav" data-slider="vb">
+        <button type="button" data-dir="-1" aria-label="Verbatim précédent">‹</button>
+        <span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span>
+        <button type="button" data-dir="1" aria-label="Verbatim suivant">›</button>
+      </div>
+
+      <h4 class="cs-h4">La synthèse de nos interviews</h4>
+      <div class="cs-syn">
+        <div class="cs-syncard">
+          <h4>Points communs des utilisateurs</h4>
+          <ul>
+            <li><b>Ponctualité et retards :</b> tous ont mentionné des retards fréquents ou des imprévus qui affectent leur trajet et leur vie quotidienne, obligeant souvent à partir plus tôt ou à changer d'itinéraire pour arriver à l'heure au travail / rdv.</li>
+            <li><b>Inconfort dans les transports bondés :</b> Camille et Nicolas évoquent des transports trop pleins aux heures de pointe, environnement désagréable voire stressant. Cela affecte aussi la sécurité, s'il y a besoin d'évacuer la rame rapidement il y a des risques d'accident.</li>
+            <li><b>Frustrations liées aux infrastructures :</b> portiques qui ne fonctionnent pas bien (Camille), signalisations peu claires (Tristan et Nicolas), ou infrastructures qui tardent à être mises en place.</li>
+            <li><b>Propreté et bruit :</b> frustration liée à la propreté (Camille et Tristan) et au comportement des autres passagers, par exemple musiques/vidéos fort, avec une absence d'un employé SNCF pour régler ce problème.</li>
+          </ul>
+        </div>
+        <div class="cs-syncard">
+          <h4>Problèmes spécifiques</h4>
+          <ul>
+            <li><b>Portiques défectueux :</b> Camille a fait part d'une mauvaise expérience avec des portiques qui ne s'ouvraient pas, et un agent de la RATP qui l'a accusé à tort, illustrant un manque de compréhension et de soutien des agents en cas de problème.</li>
+            <li><b>Incohérences entre les lignes :</b> Nicolas souligne que certaines lignes de métro ou RER sont bien meilleures que d'autres, en termes de propreté, de sécurité, et de rapidité, ce qui ne devrait pas être le cas dans un réseau unifié. Il y a clairement un problème de cohérence.</li>
+          </ul>
+        </div>
+        <div class="cs-syncard">
+          <h4>Pistes d'amélioration proposées</h4>
+          <ul>
+            <li><b>Trains automatiques :</b> Camille propose de généraliser les trains automatiques, comme sur les lignes 1 et 14, pour améliorer la ponctualité et réduire les problèmes techniques sur les RER.</li>
+            <li><b>Sécurité aux quais :</b> Nicolas suggère d'installer des portiques de sécurité pour tout les quais pour assurer une meilleure protection des usagers et réduire les risques d'accidents.</li>
+            <li><b>Meilleure signalisation :</b> Tristan et Nicolas suggèrent une signalisation plus claire dans les gares et sur les applications, pour indiquer plus précisément les correspondances et les sorties.</li>
+            <li><b>Harmonisation des lignes :</b> Nicolas souhaite une uniformisation du niveau de qualité entre les lignes de métro et RER, afin que toutes soient aussi propres, sûres et efficaces les unes que les autres.</li>
+            <li><b>Un pass universel :</b> Nicolas propose un « pass liberté » pour tous, plus simple et évitant l'utilisation de tickets ou de multiples abonnements.</li>
+            <li><b>Un agent SNCF par train :</b> Nicolas propose aussi d'avoir pour chaque train un agent SNCF qui serait là pour surveiller et régler les différents problèmes, comme par exemple des problèmes sonores dû à des usagers.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="cs-p">En conclusion, ces entretiens montrent une expérience globalement négative des transports en commun. Les usagers expriment une forte demande pour une amélioration de l'expérience, notamment en termes de fluidité et d'agrément. Les points les plus fréquemment cités concernent la ponctualité, la propreté des installations, la clarté des informations fournies, ainsi que le sentiment de sécurité à bord.</p>
+
+      <h3 class="cs-h3">Personas</h3>
+      <p class="cs-p">Grâce à nos interviews, nous avons établi deux personas : un principal et un secondaire, afin de mieux cibler les besoins et attentes spécifiques des utilisateurs.</p>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h4>Camille · persona principal</h4>
+          <p><strong>Notre premier persona, Camille,</strong> est notre persona principal. Elle représente la majorité des problématiques évoquées lors des interviews, regroupant ainsi les difficultés rencontrées par de nombreux usagers.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 6.webp" alt="Persona principal Camille Tran, 25 ans, ingénieure : objectifs, gains, peurs, points de douleurs et moyens de transport."><span class="cs-cap">Persona principal · Camille</span></button>
+        </div>
+      </div>
+
+      <div class="cs-step flip">
+        <div class="cs-step-txt">
+          <h4>Tristan · persona secondaire</h4>
+          <p><strong>En ce qui concerne Tristan,</strong> il constitue notre persona secondaire. Il illustre un profil que nous n'avons pas pu explorer en profondeur lors de nos interviews, celui d'un usager en situation de handicap.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 7.webp" alt="Persona secondaire Tristan Un, 23 ans, étudiant en STAPS en situation de handicap : objectifs, gains, peurs et points de douleurs."><span class="cs-cap">Persona secondaire · Tristan</span></button>
+        </div>
+      </div>
+
+      <h2 class="cs-sec" id="definition">Définition</h2>
+      <hr class="cs-secline">
+      <p class="cs-secintro">Après avoir obtenu un meilleur profil de nos utilisateurs, nous entrons dans la phase de définition, qui nous permet de cerner précisément le problème à résoudre ! Cette étape comprend la création de l'Experience Map, le canevas de proposition de valeur et enfin notre véritable problématique. <span aria-hidden="true">🔍</span></p>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Experience Map</h3>
+          <p>À partir de notre parcours utilisateur et des personas, nous avons créé l'Experience Map du trajet de <strong>Camille</strong> vers son travail. Plusieurs points intéressants sont ressortis, mais trois d'entre eux se distinguent particulièrement.</p>
+          <p>Le premier concerne la vérification des informations sur le train : il est possible de se tromper de voie, ce qui peut faire perdre un temps précieux. Une meilleure signalisation est donc nécessaire.</p>
+          <p>Ensuite, sur le quai, un besoin de sécurité s'est fait sentir, notamment la peur de se faire pousser. Pour répondre à ce besoin, l'ajout de portiques de sécurité dans les gares pourrait être une solution.</p>
+          <p>Enfin, au moment de monter dans le train, le confort pose problème, avec un manque de places assises et d'espace, ce qui nécessite des améliorations.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 8.webp" alt="Experience Map du trajet de Camille : étapes, émotions, actions, citations, points de douleurs, besoins et opportunités avant, pendant et après le trajet."><span class="cs-cap">Experience Map du trajet de Camille<br>Cliquez pour mieux lire 📸</span></button>
+        </div>
+      </div>
+
+      <div class="cs-step flip">
+        <div class="cs-step-txt">
+          <h3>Canevas / Value proposition</h3>
+          <p>Suite à notre experience map, nous avons élaboré un canevas de proposition de valeur. Cet outil nous a permis de structurer les informations essentielles sur nos utilisateurs et de mieux orienter notre processus de conception.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 9.webp" alt="Canevas de proposition de valeur : proposition de valeur (produits et services, soulagements, avantages) face au profil du client cible (attentes, besoins, irritants)."><span class="cs-cap">Canevas de proposition de valeur<br>Cliquez pour mieux lire 📸</span></button>
+        </div>
+      </div>
+
+      <h3 class="cs-h3">Proposition de problématique</h3>
+      <p class="cs-p">Pour mieux définir les problèmes, nous avons utilisé la technique « How might we… ? » et, dans un temps limité, nous avons toutes formulé les questions que nous avions en lien avec nos personas et recherches.</p>
+      <p class="cs-p">Après avoir rassemblé toutes nos problématiques, nous les avons regroupées par thèmes : TRAJET, SIGNALISATION, FLUX et CONFORT.</p>
+      <p class="cs-p">Voici quelques exemples de problématiques que nous avons formulées :</p>
+      <ul class="cs-hmw">
+        <li>Comment pourrions-nous rendre le trajet moins bruyant ?</li>
+        <li>Comment pourrions-nous rendre le voyage plus sécurisé ?</li>
+        <li>Comment pourrions-nous améliorer les signalisations ?</li>
+        <li>Comment pourrions-nous améliorer la prise d'informations usagers ?</li>
+        <li>Comment pourrions-nous proposer plus de trains/métros ?</li>
+        <li>Comment pourrions-nous rendre les usagers plus détendus ?</li>
+      </ul>
+      <p class="cs-p">Ensuite, nous avons chacune effectué trois votes, et il est apparu rapidement que nous étions toutes en accord. Nous avons donc choisi de nous concentrer sur la problématique suivante :</p>
+      <div class="cs-pick"><span class="cs-pick-tag">✦ Problématique retenue</span><p>« Comment pourrions-nous rendre le voyage plus sécurisé ? »</p></div>
+
+      <h2 class="cs-sec" id="ideation">Idéation</h2>
+      <hr class="cs-secline">
+      <p class="cs-secintro">Dans cette phase d'idéation, nous avons exploré des idées créatives et innovantes pour trouver la solution à notre problématique ! Cela inclut la création de nos storyboards, ainsi que l'élaboration du Business Model qui encadre notre solution. <span aria-hidden="true">💡</span></p>
+
+      <h3 class="cs-h3">Phase d'idéation</h3>
+      <p class="cs-p">Lors de la phase d'idéation, nous avons commencé à réfléchir à plusieurs solutions pour rendre les trajets des usagers plus sécurisés. L'objectif était de générer un maximum d'idées, puis de voter pour en sélectionner trois.</p>
+      <div class="cs-brainpanel">
+        <p class="lbl">Nos idées en vrac</p>
+        <ul class="cs-ideas">
+          <li>Mettre un agent de la SNCF dans chaque train/métros bus (pour éviter les gens qui ne laissent pas sortir les gens, les gens qui abusent avec la musique forte, ou éviter agression vol)</li>
+          <li>Faire des bulles safes en quai ou dans le train avec fermeture instantanée et débloquer par agent de sécurité</li>
+          <li>Pour chaque usagers, tout le monde doit être assis, personne ne peut être débout, comme cela personne ne pourrait tomber (les trains devraient être changés)</li>
+          <li>Mettre des robots de sécurité dans les RER</li>
+          <li>Mettre les portes sécurisées quand on attend le train comme pour les métros type métro 1 pour éviter les accidents (comme la pousse etc.)</li>
+          <li>Installer des caméras de surveillance dans les trains et gares pour repérer les comportements suspects</li>
+          <li>Wagon que pour femmes</li>
+        </ul>
+      </div>
+      <div class="cs-retained">
+        <div class="cs-rethead">
+          <h4>Les idées retenues</h4>
+          <p>Nous avons donc voté pour trois solutions qui sont les suivantes :</p>
+        </div>
+        <div class="cs-retrow"><span class="num">01</span><span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><p>Mettre des robots de sécurité dans les RER</p></div>
+        <div class="cs-retrow"><span class="num">02</span><span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><p>Mettre les portes sécurisées quand on attend le train comme pour les métros type métro 1 pour éviter les accidents (comme la pousse etc.)</p></div>
+        <div class="cs-retrow"><span class="num">03</span><span class="chk" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><p>Installer des caméras de surveillance dans les trains et gares pour repérer les comportements suspects</p></div>
+      </div>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Storyboard</h3>
+          <p>Avec nos trois idées, nous avons créé des storyboards pour chacune d'entre elles. Le but était de visualiser comment elles pourraient être mises en œuvre dans le contexte des trajets des usagers et d'illustrer l'expérience utilisateur à chaque étape.</p>
+          <p>Finalement, nous avons décidé de retenir l'idée d'<strong>installer des portiques de sécurité</strong> lors de l'attente du train, car elle nous paraissait la plus pertinente et réalisable.</p>
+        </div>
+        <div class="cs-step-media">
+      <div class="cs-carousel">
+        <div class="cs-cslide">
+          <h4 class="cs-h4">Robots de sécurité</h4>
+          <button class="cs-img" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 10.webp" alt="Storyboard des robots de sécurité dans le RER A : les agents robots surveillent les quais et les rames, interviennent en cas d'infraction et rassurent les usagers."><span class="cs-cap">Storyboard · Robots de sécurité</span></button>
+        </div>
+        <div class="cs-cslide">
+          <h4 class="cs-h4">Portes sécurisées aux quais</h4>
+          <button class="cs-img" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 11.webp" alt="Storyboard des portes sécurisées : avant, un usager se fait pousser sur les voies ; après, les portes empêchent la chute et l'usager qui a poussé se fait repérer."><span class="cs-cap">Storyboard · Portes sécurisées aux quais</span></button>
+        </div>
+        <div class="cs-cslide">
+          <h4 class="cs-h4">Caméra de surveillance avec écrans</h4>
+          <button class="cs-img" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 12.webp" alt="Storyboard des caméras de surveillance : grâce aux caméras et aux écrans, un vol est repéré et signalé, et les agents de sécurité peuvent interpeller les individus suspects."><span class="cs-cap">Storyboard · Caméra de surveillance avec écrans</span></button>
+        </div>
+      </div>
+      <div class="cs-slidernav" data-slider="story">
+        <button type="button" data-dir="-1" aria-label="Storyboard précédent">‹</button>
+        <span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></span>
+        <button type="button" data-dir="1" aria-label="Storyboard suivant">›</button>
+      </div>
+        </div>
+      </div>
+
+      <div class="cs-step flip">
+        <div class="cs-step-txt">
+          <h3>Business Model</h3>
+          <p>Nous avons ensuite créé un business model pour décrire comment notre solution s'intègre dans un cadre commercial viable.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 13.webp" alt="Business Model Canvas de la solution : partenaires, activités clés, proposition de valeur, relation clients, segment de marché, structure de coûts et sources de revenu."><span class="cs-cap">Business Model Canvas<br>Cliquez pour mieux lire 📸</span></button>
+        </div>
+      </div>
+
+      <h2 class="cs-sec" id="prototype">Prototype</h2>
+      <hr class="cs-secline">
+      <p class="cs-secintro">Dans cette phase de prototypage, nous avons construit notre maquette comme un véritable projet en Lego, donnant vie à notre solution. Nous avons également réalisé une vidéo pour illustrer son utilisation dans la vie quotidienne, permettant ainsi de visualiser son impact. <span aria-hidden="true">🎥</span></p>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Création maquette</h3>
+          <p>Pour notre prototype, nous sommes retournés en enfance en optant pour un modèle en Lego ! Après avoir soigneusement sélectionné toutes les pièces que nous jugions nécessaires, nous avons construit ensemble le quai, le train et les portiques de sécurité. Cette approche nous a permis de mieux visualiser notre concept et d'explorer chaque élément de manière concrète.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 14.webp" alt="Pièces Lego triées sur la table au début de la construction du prototype."><span class="cs-cap">Le tri des pièces</span></button>
+        </div>
+      </div>
+      <div class="cs-step flip">
+        <div class="cs-step-txt">
+          <p>Au-delà de la création, cette approche nous a permis de mieux visualiser notre idée et s'est surtout avérée très utile plus tard pour nos futurs tests !</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 15.webp" alt="Prototype Lego terminé : le train, le quai, les portiques de sécurité et les personnages en cours d'assemblage."><span class="cs-cap">La maquette assemblée</span></button>
+        </div>
+      </div>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Vidéos</h3>
+          <p>Après avoir finalisé notre prototype, nous avons créé une vidéo pour le présenter, que vous pouvez visionner juste à côté ! <span aria-hidden="true">👉</span></p>
+          <p class="cs-videonote">(Attention, on s'est donné à fond pour les bruitages et doublages !)</p>
+        </div>
+        <div class="cs-step-media">
+          <div class="cs-videostage"><div class="cs-video"><iframe src="https://drive.google.com/file/d/1jyl10e96rvyqDajyiViOtGyNHeey29tG/preview" allow="autoplay; fullscreen" allowfullscreen title="Vidéo de démonstration du prototype en Lego"></iframe></div></div>
+        </div>
+      </div>
+
+      <h2 class="cs-sec" id="test">Test</h2>
+      <hr class="cs-secline">
+      <p class="cs-secintro">Dans cette étape de test, nous avons mis en place une trame de test et réalisé des tests utilisateurs afin de recueillir des retours précieux. Grâce à ces feedbacks, nous avons pu identifier des pistes d'amélioration et affiner notre solution pour répondre encore mieux aux besoins des utilisateurs. <span aria-hidden="true">🔄</span></p>
+
+      <h3 class="cs-h3">Trame de tests</h3>
+      <p class="cs-p">Après avoir terminé notre prototype, nous avons commencé à préparer notre trame de test. L'objectif était de formuler des questions plutôt ouvertes pour recueillir les avis et les ressentis des personnes interviewées.</p>
+      <p class="cs-p">Voici toute notre trame de test avec présentations et questions ! <span aria-hidden="true">👇</span></p>
+      <div class="cs-note">
+        <p>Bonjour ! Nous sommes des étudiants en UX Design et on travaille sur la problématique suivante : comment rendre le voyage en transport plus sécurisé et plus précisément rendre l'attente du quais plus sécurisé.</p>
+        <p>Déjà toi, quand tu attends le RER, te sens-tu en sécurité ?</p>
+        <p class="lego">[Laisser l'interviewé répondre]</p>
+        <p>Je vais te poser maintenant quelques questions :</p>
+        <ul class="cs-list">
+          <li>Est-ce que tu as déjà été témoin d'accident ?</li>
+          <li>As-tu déjà ressenti parfois, une peur ? Comme par exemple une peur de tomber ou une peur de te faire pousser par quelqu'un ?</li>
+          <li>Qu'est-ce qui te fait te sentir le plus en sécurité en attendant sur un quai de RER ou de métro ?</li>
+          <li>As-tu déjà été confronté à des situations où les quais étaient bondés ? Comment as-tu ressenti cette situation en termes de sécurité ?</li>
+          <li>Si tous les transports avaient des portiques de sécurité comme sur la ligne 1, est-ce que ça te donnerait plus envie de les utiliser ?</li>
+        </ul>
+        <p class="lego">[Laisser l'interviewé utiliser le personnage lego]</p>
+        <ul class="cs-list">
+          <li>Du coup qu'est-ce que tu ressens par rapport à ce système ?</li>
+          <li>Est-ce que tu comprends ce dispositif et est-ce que ça te semble bien ?</li>
+          <li>Est-ce qu'avec ce type de système ça te ferait sentir plus en sécurité ?</li>
+          <li>Est-ce que tu aurais des suggestions pour qu'on améliore notre prototype ?</li>
+        </ul>
+      </div>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Test utilisateurs</h3>
+          <p>Après avoir préparé nos questions, nous avons interrogé trois utilisateurs : Camille, Arthur, Éléonore et Mathieu. Leurs retours nous ont permis de recueillir des avis précieux sur notre prototype, en particulier sur leurs ressentis face aux différents éléments proposés. Voici quelques exemples de réponses que nous avons obtenues.</p>
+        </div>
+        <div class="cs-step-media">
+      <div class="cs-vslider boxed">
+        <div class="cs-vslide">
+          <p class="cs-vq">As-tu déjà ressenti parfois, une peur ? Comme par exemple une peur de tomber ou une peur de te faire pousser par quelqu'un ?</p>
+          <blockquote class="cs-vb"><span class="who v">Camille</span> J'ai peur qu'on me pousse, des vols et de la foule si c'est bondé. Les réseaux sociaux amplifient cette peur, avec les vidéos qui circulent qui montrent des personnes au comportement bizarre (cris etc).</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Est-ce que tu aurais des suggestions pour qu'on améliore notre prototype ?</p>
+          <blockquote class="cs-vb"><span class="who v">Camille</span> Ajouter aux portiques des agents de sécurité aux heures de pointe. Par exemple, sur la 14 il y a des agents qui régulent le flux, redirigent les passagers vers les voitures moins remplies et informent sur le prochain métro.</blockquote>
+          <blockquote class="cs-vb"><span class="who r">Éléonore</span> Marquages au sol ou signalisation pour laisser sortir les usagers qui sont dans les rames et qui veulent sortir (agent qui régule pourquoi pas, visuels ou sonores).</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">As-tu déjà été confronté à des situations où les quais étaient bondés ? Comment as-tu ressenti cette situation en termes de sécurité ?</p>
+          <blockquote class="cs-vb"><span class="who b">Arthur</span> Oui, je me sens en insécurité totale, étouffe, sensation d'asphyxie. J'ai peur qu'un accident arrive a une autre personne et ajoute de la panique. Ça peut ajouter des problèmes comme retarder les trains et empirer la situation.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Est-ce qu'avec ce type de système ça te ferait sentir plus en sécurité ?</p>
+          <blockquote class="cs-vb"><span class="who b">Arthur</span> Oui, sans hésitation.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Est-ce que tu as déjà été témoin d'accident ?</p>
+          <blockquote class="cs-vb"><span class="who r">Éléonore</span> Non jamais, en revanche elle a vu des personnes qui sortent sur les rails et du coup ça ralentit le trafic.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Est-ce que tu comprends ce dispositif et est-ce que ça te semble bien ?</p>
+          <blockquote class="cs-vb"><span class="who r">Éléonore</span> Le dispositif est très clair c'est parlant.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Si tous les transports avaient des portiques de sécurité comme sur la ligne 1, est-ce que ça te donnerait plus envie de les utiliser ?</p>
+          <blockquote class="cs-vb"><span class="who g">Mathieu</span> Pas spécialement envie de les utiliser mais ça donne un bonus ça répond à plusieurs problématiques ! Car il les utiliserait quand même sans les portiques.</blockquote>
+        </div>
+        <div class="cs-vslide">
+          <p class="cs-vq">Du coup qu'est-ce que tu ressens par rapport à ce système ?</p>
+          <blockquote class="cs-vb"><span class="who g">Mathieu</span> Très bien déjà habituellement ce serait cool que ce système soit partout.</blockquote>
+        </div>
+      </div>
+      <div class="cs-slidernav" data-slider="test">
+        <button type="button" data-dir="-1" aria-label="Réponse précédente">‹</button>
+        <span class="dots" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>
+        <button type="button" data-dir="1" aria-label="Réponse suivante">›</button>
+      </div>
+        </div>
+      </div>
+
+      <h3 class="cs-h3">Synthèse des enseignements</h3>
+      <p class="cs-p">Voici la <strong>synthèse</strong> de nos test utilisateurs :</p>
+      <div class="cs-cards">
+        <div class="cs-keycard c1"><span class="num">1</span><h4>Un sentiment d'insécurité partagé</h4><p>Tous les interviewés expriment un sentiment d'insécurité en attendant sur les quais, notamment à cause de la proximité des rails et de la foule.</p><ul><li><strong>Peur de se faire pousser :</strong> plusieurs mentionnent une crainte d'accident dû à la foule ou à des comportements inattendus.</li><li><strong>Vigilance accrue :</strong> les passagers font souvent attention à leurs affaires, craignant le vol (pickpockets).</li></ul></div>
+        <div class="cs-keycard c2"><span class="num">2</span><h4>Sur les sentiments de sécurité</h4><ul><li><strong>Présence d'agents de sécurité :</strong> souvent citée comme un facteur rassurant.</li><li><strong>Portiques de sécurité :</strong> l'introduction de portiques, comme sur la ligne 1, est jugée bénéfique. Ils apportent une sensation de sécurité supplémentaire, permettant aux usagers de se sentir moins exposés.</li></ul></div>
+        <div class="cs-keycard c3"><span class="num">3</span><h4>Sur des expériences spécifiques</h4><ul><li><strong>Accidents et situations bondées :</strong> bien que la plupart des interviewés n'aient pas été témoins d'accidents graves, certains partagent des expériences de situations stressantes lors de quais bondés, entraînant un sentiment d'étouffement ou d'anxiété.</li><li><strong>Marques au sol et signalisation :</strong> des suggestions sont faites concernant des marquages au sol pour mieux gérer le flux de passagers et éviter l'encombrement.</li></ul></div>
+        <div class="cs-keycard c4"><span class="num">4</span><h4>Pistes d'amélioration suggérées</h4><ul><li><strong>Renforcer la présence humaine :</strong> ajouter des agents de sécurité pendant les heures de pointe pour gérer les flux et rassurer les usagers.</li><li><strong>Communication visuelle et sonore :</strong> proposer des annonces claires et des marquages au sol pour guider les usagers, surtout lors des montées et descentes de rames.</li></ul></div>
+        <div class="cs-keycard c5 wide"><span class="num">5</span><h4>En conclusion</h4><p>L'ensemble des retours souligne l'importance d'une approche combinée : le renforcement de la sécurité physique (portiques, agents) et une communication efficace pour améliorer l'expérience des usagers sur les quais de transport.</p></div>
+      </div>
+
+      <div class="cs-step">
+        <div class="cs-step-txt">
+          <h3>Améliorations suite aux tests</h3>
+          <p>Grâce aux retours des utilisateurs, nous avons ensuite établi différents changements pour notre prototype, ce qui nous a permis d'obtenir une solution plus adaptée et fonctionnelle aux besoins des usagers.</p>
+          <p>Ajout d'un panneau de signalisation de bienséance pour inciter les usagers à laisser sortir les personnes du train/métro, ainsi que la présence d'un agent de sécurité à proximité de chaque portique.</p>
+        </div>
+        <div class="cs-step-media">
+          <button class="cs-fig" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 16.webp" alt="Amélioration du prototype : un panneau « Laissez sortir les autres usagers » ajouté près du portique, avec un agent de sécurité à proximité."><span class="cs-cap">Panneau « Laissez sortir les autres usagers »</span></button>
+        </div>
+      </div>
+
+      <button class="cs-img" type="button" aria-label="Agrandir l'image"><img src="assets/Design thinking 17.webp" alt="Maquette finale du prototype Lego : le train, le quai et les portiques de sécurité avec les usagers et les personnages."></button>
+      <span class="cs-imgcap">Notre maquette finale</span>
+
+      <div class="cs-concl">
+      <h2 class="cs-sec" id="conclusion">Conclusion</h2>
+      <hr class="cs-secline">
+      <p class="cs-secintro">Grâce à l'ensemble de notre démarche en design thinking, nous avons pu concevoir un prototype impactant qui pourrait véritablement transformer l'expérience des usagers et résoudre certains des problèmes fréquents dans les transports. Notre objectif était de proposer une solution réalisable qui permette aux usagers de se sentir réellement en sécurité lorsqu'ils attendent leur train, en créant un environnement plus rassurant et fluide pour chaque trajet.</p>
+
+      <h3 class="cs-h3">1. Sécurité sur les quais</h3>
+      <p class="cs-p">Toutes nos interviews et tests révèlent une véritable peur et un sentiment d'insécurité pendant l'attente sur les quais. Notre solution atténue cette crainte, notamment celle de se faire pousser hors du quai et sur les rails.</p>
+
+      <h3 class="cs-h3">2. Prévention et protection des vies</h3>
+      <p class="cs-p">Bien que nous ne l'ayons pas abordé directement, il est important de rappeler qu'environ 500 personnes se jettent chaque année sur les rails. Notre solution, en plus d'améliorer l'expérience utilisateur, pourrait réellement contribuer à sauver des vies.</p>
+
+      <h3 class="cs-h3">3. Réduction des retards liés aux intrusions</h3>
+      <p class="cs-p">En tant qu'usager fréquent du RER, je constate régulièrement des retards causés par des personnes présentes sur les voies. L'installation de portiques de sécurité pourrait empêcher l'accès aux voies et ainsi réduire considérablement les retards.</p>
+      </div>
+
+      <hr class="cs-divider">
+      <h3 class="cs-h3">Si j'avais eu plus de temps, voici ce que j'aurais réalisé :</h3>
+      <ul class="cs-list">
+        <li>Interroger la RATP sur l'absence d'uniformité des portiques pour mieux comprendre les contraintes techniques et budgétaires.</li>
+        <li>Mener des tests utilisateurs supplémentaires pour obtenir des retours plus variés sur notre prototype, incluant différentes tranches d'âge et niveaux de familiarité avec les transports.</li>
+        <li>Collaborer avec des experts en sécurité pour valider la faisabilité de notre solution et identifier des ajustements éventuels pour maximiser la protection sans perturber le flux.</li>
+      </ul>
+
+      <h3 class="cs-h3">Leçons tirées de ce projet</h3>
+      <div class="cs-note">Ce projet m'a permis d'explorer l'ensemble du processus de design thinking en seulement une semaine, une expérience enrichissante et intense ! J'ai particulièrement apprécié travailler sur un produit non digital, ce qui change de mes projets habituels en digital. C'était motivant de relever des défis différents et de sortir de ma zone de confort. <span aria-hidden="true">😁</span></div>
+
+      <h3 class="cs-h3">Remerciements spéciaux :</h3>
+      <p class="cs-quote">Je tiens à remercier tout particulièrement mon équipe, Lou, Morgane et Caroline, avec qui j'ai travaillé tout au long de ce projet. Je suis très fière de ce que nous avons accompli ensemble ! Merci également à toutes les personnes interviewées, ainsi qu'à notre professeure, qui a été très présente et a répondu avec patience à toutes nos <em>(nombreuses)</em> questions.</p>
+
+      <div class="cs-end">
+        <div class="cs-end-actions">
+          <a href="index.html#contact" class="btn primary"><span aria-hidden="true">✉</span> Me contacter</a>
+          <a href="index.html#epopees" class="btn ghost"><span aria-hidden="true">↩</span> Retour aux projets</a>
+        </div>
+        <div class="cs-end-actions">
+          <a href="cnp.html" class="btn ghost"><span aria-hidden="true">←</span> Projet précédent</a>
+          <a href="every-choice-matters.html" class="btn ghost">Projet suivant <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+        </div>
+        <aside class="cs-rail" aria-label="Sommaire">
+          <a href="index.html#epopees" class="cs-rail-back"><span aria-hidden="true">←</span> Retour aux projets</a>
+          <p class="cs-rail-h">Passer à la section</p>
+          <a href="#introduction">Introduction</a>
+          <a href="#empathie">Empathie</a>
+          <a href="#definition">Définition</a>
+          <a href="#ideation">Idéation</a>
+          <a href="#prototype">Prototype</a>
+          <a href="#test">Test</a>
+          <a href="#conclusion">Conclusion</a>
+        </aside>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <a href="index.html" class="logo" aria-label="Accueil">CG</a>
+    <p class="fx">Cléa Godfrin · UX Designer · Des pixels qui racontent des histoires ✨</p>
+  </footer>
+
+  <script>
+  (function(){
+    var figs=[].slice.call(document.querySelectorAll('.cs-fig, .cs-cover, .cs-img'));
+    if(!figs.length) return;
+    var lb=document.createElement('div');
+    lb.className='lb';
+    lb.innerHTML='<button class="lb-close" type="button" aria-label="Fermer">×</button>'+
+      '<button class="lb-nav lb-prev" type="button" aria-label="Image précédente">‹</button>'+
+      '<img alt="">'+
+      '<button class="lb-nav lb-next" type="button" aria-label="Image suivante">›</button>'+
+      '<span class="lb-count" aria-hidden="true"></span>';
+    document.body.appendChild(lb);
+    var lbImg=lb.querySelector('img'), bPrev=lb.querySelector('.lb-prev'), bNext=lb.querySelector('.lb-next'), count=lb.querySelector('.lb-count');
+    var group=[], idx=0;
+    function groupOf(fig){
+      var car=fig.closest('.cs-carousel');
+      if(car) return [].slice.call(car.querySelectorAll('.cs-fig, .cs-img'));
+      return [fig];
+    }
+    function show(i){
+      if(i<0||i>=group.length) return;
+      idx=i;
+      var im=group[i].querySelector('img'); if(!im) return;
+      lbImg.src=im.src; lbImg.alt=im.alt||'';
+      var multi=group.length>1;
+      bPrev.style.display=bNext.style.display=multi?'':'none';
+      count.style.display=multi?'':'none';
+      bPrev.disabled=i<=0; bNext.disabled=i>=group.length-1;
+      count.textContent=(i+1)+' / '+group.length;
+    }
+    function openFrom(f){group=groupOf(f);show(group.indexOf(f));lb.classList.add('open');document.body.style.overflow='hidden';}
+    function closeLb(){lb.classList.remove('open');document.body.style.overflow='';}
+    figs.forEach(function(f){f.addEventListener('click',function(){openFrom(f);});});
+    bPrev.addEventListener('click',function(e){e.stopPropagation();show(idx-1);});
+    bNext.addEventListener('click',function(e){e.stopPropagation();show(idx+1);});
+    lbImg.addEventListener('click',function(e){e.stopPropagation();});
+    lb.addEventListener('click',closeLb);
+    document.addEventListener('keydown',function(e){
+      if(!lb.classList.contains('open'))return;
+      if(e.key==='Escape')closeLb();
+      else if(e.key==='ArrowLeft')show(idx-1);
+      else if(e.key==='ArrowRight')show(idx+1);
+    });
+  })();
+  </script>
+
+  <script>
+  (function(){
+    var sliders=[].slice.call(document.querySelectorAll('.cs-vslider, .cs-carousel'));
+    sliders.forEach(function(slider){
+      var nav=slider.nextElementSibling;
+      if(!nav||!nav.classList.contains('cs-slidernav')) return;
+      var prev=nav.querySelector('[data-dir="-1"]'), next=nav.querySelector('[data-dir="1"]');
+      var dots=[].slice.call(nav.querySelectorAll('.dot'));
+      var slides=[].slice.call(slider.children);
+      var cs=getComputedStyle(slider), gap=parseFloat(cs.columnGap||cs.gap)||20;
+      function current(){var s=slides[0];if(!s)return 0;var i=Math.round(slider.scrollLeft/(s.offsetWidth+gap));return Math.max(0,Math.min(slides.length-1,i));}
+      function fit(){var i=current();if(slides[i])slider.style.height=slides[i].offsetHeight+8+'px';}
+      function step(dir){var s=slides[0];if(!s)return;slider.scrollBy({left:dir*(s.offsetWidth+gap),behavior:'smooth'});}
+      function update(){
+        var i=current();
+        if(prev)prev.disabled=i<=0; if(next)next.disabled=i>=slides.length-1;
+        dots.forEach(function(d,j){d.classList.toggle('on',j===i);});
+        fit();
+      }
+      if(prev)prev.addEventListener('click',function(){step(-1);});
+      if(next)next.addEventListener('click',function(){step(1);});
+      slider.addEventListener('scroll',function(){clearTimeout(slider._u);slider._u=setTimeout(update,70);});
+      window.addEventListener('resize',function(){clearTimeout(slider._r);slider._r=setTimeout(fit,120);});
+      window.addEventListener('load',fit);
+      update();
+    });
+  })();
+  </script>
+
+  <script>
+  (function(){
+    var rail=document.querySelector('.cs-rail'); if(!rail) return;
+    var links=rail.querySelectorAll('a[href^="#"]'), map={};
+    links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
+    var secs=document.querySelectorAll('h2.cs-sec[id]');
+    if(!('IntersectionObserver' in window)||!secs.length) return;
+    if(links[0])links[0].classList.add('active');
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(a){a.classList.remove('active');});
+          if(map[e.target.id])map[e.target.id].classList.add('active');
+        }
+      });
+    },{rootMargin:'-12% 0px -75% 0px',threshold:0});
+    secs.forEach(function(s){io.observe(s);});
+  })();
+  </script>
+
+  <script>
+  (function(){
+    var root=document.documentElement, opts=['big','contrast','reduce','links'];
+    try{opts.forEach(function(o){if(localStorage.getItem('a11y-'+o)==='1')root.classList.add('a11y-'+o);});}catch(e){}
+    var toggle=document.querySelector('.a11y-toggle'), panel=document.getElementById('a11y-panel');
+    if(!toggle) return;
+    var lbl=toggle.querySelector('span');
+    function setOpen(open){
+      if(open)panel.removeAttribute('hidden'); else panel.setAttribute('hidden','');
+      toggle.setAttribute('aria-expanded',open?'true':'false');
+      lbl.textContent = open ? 'Fermer' : 'Accessibilité';
+    }
+    toggle.addEventListener('click',function(){ setOpen(panel.hasAttribute('hidden')); });
+    document.querySelectorAll('.a11y-panel button[data-a11y]').forEach(function(btn){
+      var o=btn.getAttribute('data-a11y');
+      if(root.classList.contains('a11y-'+o))btn.setAttribute('aria-pressed','true');
+      btn.addEventListener('click',function(){
+        var on=root.classList.toggle('a11y-'+o);
+        btn.setAttribute('aria-pressed',on?'true':'false');
+        try{localStorage.setItem('a11y-'+o,on?'1':'0');}catch(e){}
+      });
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hasAttribute('hidden')){setOpen(false);toggle.focus();}});
+  })();
+  </script>
+
+</body>
+</html>
